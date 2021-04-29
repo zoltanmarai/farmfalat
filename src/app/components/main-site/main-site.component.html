@@ -1,0 +1,48 @@
+<app-header></app-header>
+<main>
+  <div class="container">
+    <div class="text-lg-center">
+      <h3>Mai tipp: {{slogan.text}} </h3>
+    </div>
+  <ngb-carousel [animation]="true" [interval]="3000">
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img src="../../../assets/different-fresh-fruits-vegetables-eating-healthy_3236-118.jpg" class="img-thumbnail"  alt="Random first slide">
+      </div>
+      <div class="carousel-caption">
+        <h3>Zöldség kosarak</h3>
+        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img src="../../../assets/colorful-fruit_1417-1529.jpg" class="img-thumbnail"  alt="Random second slide">
+      </div>
+      <div class="carousel-caption">
+        <h3>Second slide label</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img src="../../../assets/eggs-cups-burlap-with-dry-grass_1150-25512.jpg" class="img-thumbnail"  alt="Random third slide">
+      </div>
+      <div class="carousel-caption">
+        <h3>Third slide label</h3>
+        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+      </div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img src="../../../assets/collection-vector-glass-jars-with-jam-realistic-style_1441-275.jpg" class="img-thumbnail"  alt="Random third slide">
+      </div>
+      <div class="carousel-caption">
+        <h3>Third slide label</h3>
+        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+  </div>
+
+</main>
+<app-footer></app-footer>

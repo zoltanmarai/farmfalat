@@ -1,0 +1,143 @@
+<form (submit)="submit()" [formGroup]="productForm">
+
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+
+      <div class="modal-header">
+    <h3 class="modal-title">{{pr.name}} adatai:</h3>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">X</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-lg-6">
+      <div class="form-group">
+        <div class="mb-6 row">
+          <label for="formControl-imageID" class="col-sm-6 col-form-label"> Kép ID:</label>
+           <div class="col-sm-6">
+             <input type="number" class="form-control" id="formControl-imageID" formControlName="imageId" name="imageId"
+               [ngClass]="{'is-invalid': productForm.controls.imageId.invalid }">
+             <div class="invalid-feedback" *ngIf="productForm.controls.imageId.errors?.required">Adj meg egy kép számát</div>
+           </div>
+        </div>
+      </div>
+    <div class="form-group">
+      <div class="mb-6 row">
+        <label for="formControl-name" class="col-sm-6 col-form-label"> Termék neve:</label>
+         <div class="col-sm-6">
+           <input type="text" class="form-control" id="formControl-name" formControlName="name" name="name"
+             [ngClass]="{'is-invalid': productForm.controls.name.invalid }">
+           <div class="invalid-feedback" *ngIf="productForm.controls.name.errors?.required">Add meg a termék nevét:</div>
+         </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="mb-6 row">
+        <label for="formControl-price" class="col-sm-6 col-form-label"> Termék Ára:</label>
+        <div class="col-sm-6">
+          <input type="number" class="form-control" id="formControl-price" formControlName="price" name="price"
+                 [ngClass]="{'is-invalid': productForm.controls.price.invalid }">
+          <div class="invalid-feedback" *ngIf="productForm.controls.price.errors?.required">Add meg a termék árát:</div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="mb-6 row">
+        <label for="formControl-unit" class="col-sm-6 col-form-label"> Mértékegység:</label>
+        <div class="col-sm-6">
+          <select class="form-control" id="formControl-unit" formControlName="unit" name="unit"
+                  [ngClass]="{'is-invalid': productForm.controls.unit.invalid }">
+            <option selected>{{pr.unit}}</option>
+            <option disabled></option>
+            <option *ngFor="let u of unitList">{{u}}</option>
+
+          </select>
+          <div class="invalid-feedback" *ngIf="productForm.controls.unit.errors?.required">Adj mértékegységet:</div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="mb-6 row">
+        <label for="formControl-locale" class="col-sm-6 col-form-label"> Locale:</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="formControl-locale" formControlName="locale" name="locale"
+                 [ngClass]="{'is-invalid': productForm.controls.locale.invalid }">
+          <div class="invalid-feedback" *ngIf="productForm.controls.locale.errors?.required">Adj locale-t:</div>
+        </div>
+      </div>
+    </div>
+  </div>
+        <div class="col-lg-6">
+          <div class="form-group">
+            <div class="mb-6 row">
+              <label for="formControl-categoryID" class="col-sm-6 col-form-label"> Kategória ID:</label>
+              <div class="col-sm-6">
+                <input type="number" class="form-control" id="formControl-categoryID" formControlName="categoryID" name="categoryID"
+                       [ngClass]="{'is-invalid': productForm.controls.categoryID.invalid }">
+                <div class="invalid-feedback" *ngIf="productForm.controls.categoryID.errors?.required">Adj Kategória ID-t:</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="mb-6 row">
+              <label for="formControl-inPromotion" class="col-sm-6 col-form-label"> Akciós?:</label>
+              <div class="col-sm-6">
+                <select  class="form-control" id="formControl-inPromotion" formControlName="inPromotion"
+                       name="isInPromotion"
+                       [ngClass]="{'is-invalid': productForm.controls.inPromotion.invalid }">
+                  <option value="false">Nem</option>
+                  <option value="true">Igen</option>
+                </select>
+                <div class="invalid-feedback" *ngIf="productForm.controls.inPromotion.errors?.required"></div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="mb-6 row">
+              <label for="formControl-outOfStock" class="col-sm-6 col-form-label"> Kifogyott?:</label>
+              <div class="col-sm-6">
+                <select  class="form-control" id="formControl-outOfStock" formControlName="outOfStock"
+                         name="outOfStock"
+                         [ngClass]="{'is-invalid': productForm.controls.outOfStock.invalid }">
+                  <option value="false">Nem</option>
+                  <option value="true">Igen</option>
+                </select>
+                <div class="invalid-feedback" *ngIf="productForm.controls.outOfStock.errors?.required"></div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="mb-6 row">
+              <label for="formControl-outOfSeason" class="col-sm-6 col-form-label"> Beszerezhető?:</label>
+              <div class="col-sm-6">
+                <select  class="form-control" id="formControl-outOfSeason" formControlName="outOfSeason"
+                         name="outOfSeason"
+                         [ngClass]="{'is-invalid': productForm.controls.outOfSeason.invalid }">
+                  <option value="false">Igen</option>
+                  <option value="true">Nem</option>
+                </select>
+                <div class="invalid-feedback" *ngIf="productForm.controls.outOfSeason.errors?.required"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="form-group">
+      <div class="mb-6 row">
+        <label for="formControl-description" class="col-sm-4 col-form-label"> Jellemzők:</label>
+        <div class="col-sm-8">
+          <input type="text" class="form-control" id="formControl-description" formControlName="description" name="description"
+                 [ngClass]="{'is-invalid': productForm.controls.description.invalid }">
+          <div class="invalid-feedback" *ngIf="productForm.controls.description.errors?.required">Adj tudnivalókat a termékről:</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn-sm btn-outline-dark" [disabled]="productForm.invalid"  >Mentés</button>
+  </div>
+  </div>
+  </div>
+</form>

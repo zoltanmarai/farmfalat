@@ -1,0 +1,65 @@
+<div class="container">
+
+  <h5>Teljes Adatlap</h5>
+<div class="row">
+  <div class="col-lg-6">
+    <div class="mb-6 row">
+      <label class="col-sm-4">User ID:</label>
+      <div class="col-sm-8">
+        <p>{{user.userID}}</p>
+      </div>
+    </div>
+    <div class="mb-6 row">
+      <label class="col-sm-4">Név:</label>
+      <div class="col-sm-8">
+        <p>{{user.lastName}}  {{user.firstName}}</p>
+      </div>
+    </div>
+    <div class="mb-6 row">
+      <label class="col-sm-4">Email cím:</label>
+      <div class="col-sm-8">
+        <p>{{user.username}}</p>
+      </div>
+    </div>
+    <div class="mb-6 row">
+      <label class="col-sm-4">Telefonszám:</label>
+      <div class="col-sm-8">
+        <p>{{user.phoneNumber}} </p>
+      </div>
+    </div>
+
+  <div class="mb-6 row">
+    <label class="col-sm-4">Aktív:</label>
+    <div class="col-sm-8">
+      <p>{{user.active}}</p>
+    </div>
+  </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="mb-6 row">
+      <label class="col-sm-4">Lakcím:</label>
+      <div class="col-sm-8">
+        <p>{{user.postCode_home}}  {{user.city_home}}</p>
+        <p>{{user.simpleAddress_home}}</p>
+      </div>
+    </div>
+    <div class="mb-6 row">
+      <label class="col-sm-4">Szállítási cím:</label>
+      <div class="col-sm-8">
+        <p>{{user.postCode_delivery}}  {{user.city_delivery}}</p>
+        <p>{{user.simpleAddress_delivery}}</p>
+      </div>
+    </div>
+    <div class="mb-6 row">
+      <label class="col-sm-4">Számlázási cím:</label>
+      <div class="col-sm-8">
+        <p>{{user.postCode_billing}}  {{user.city_billing}}</p>
+        <p>{{user.simpleAddress_billing}}</p>
+      </div>
+    </div>
+    </div>
+</div>
+  <div style="text-align: end">
+    <button class="btn btn-outline-dark" routerLink="/user-maintenance"> Vissza</button>
+  </div>
+</div>

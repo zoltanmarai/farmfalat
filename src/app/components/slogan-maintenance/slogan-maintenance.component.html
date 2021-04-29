@@ -1,0 +1,42 @@
+<app-header></app-header>
+<main>
+  <div class="container">
+    <form (submit)="submit()" [formGroup]="sloganForm">
+      <div class="form-group">
+        <div class="mb-6 row">
+          <label for="inputSlogan" class="col-sm-4 col-form-label">Aranyköpés:</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control form-control-sm" id="inputSlogan"
+                   formControlName="slogan"
+                   [ngClass]="{'is-invalid': sloganForm.controls.slogan.invalid && sloganForm.controls.slogan.touched}">
+            <div class="invalid-feedback" *ngIf="sloganForm.controls.slogan.errors?.required">
+              Írj valami vicceset!
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="sloganForm.invalid">Beküld
+      </button>
+    </form>
+  </div>
+  <div class="container-fluid">
+    <div class="row" id="row2">
+      <h3>Összes termék táblázata</h3>
+    </div>
+    <table class="table table-striped table-bordered ">
+      <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Napi tipp szövege</th>
+        <th scope="col">Aktív</th>
+        <th scope="col">Gombok</th>
+      </tr>
+      </thead>
+      <tbody id="tbody">
+      <tr app-slogan-tablerow *ngFor="let pr of slogansArr" [pr]='pr' (delete)="delete(pr)"></tr>
+
+      </tbody>
+    </table>
+  </div>
+</main>
+<app-footer></app-footer>

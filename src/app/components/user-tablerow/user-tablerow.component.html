@@ -1,0 +1,7 @@
+<td scope="row"> {{user.userID}}</td>
+<td>{{user.lastName}} {{user.firstName}}</td>
+<td>{{user.username}}</td>
+<td>{{user.phoneNumber}}</td>
+<td app-user-fullinfo>
+  <button type="button" class="btn btn-outline-info" routerLink="/user-fullinfo/{{user.userID}}">Teljes infóoldal</button>
+</td>

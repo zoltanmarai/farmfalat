@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  /*background-color: rgba(0,255,80,0.3);*/
+ background-image: url("src/assets/pexels-adonyi-gábor-1414651.jpg");
+
+
+  background-size: cover;
+  background-attachment: fixed;
+  background-opacity: 0.5;
+}
+router-outlet + * {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  margin-top: 100px;
+  flex-grow: 1;
+}
