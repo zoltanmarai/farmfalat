@@ -1,27 +1,30 @@
 import { Injectable } from '@angular/core';
 import {environment} from "../../environments/environment";
 import {Observable, Subject} from "rxjs";
-import {DeliveryDate} from "../interfaces/deliveryDate";
+import {Faq} from "../interfaces/faq";
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
+import {Product} from "../interfaces/product";
+import {ProductResponse} from "../interfaces/product-response";
 import {map} from "rxjs/operators";
-import {DateResponse} from "../interfaces/date-response";
+import {FaqResponse} from "../interfaces/faq-response";
 
 @Injectable({
   providedIn: 'root'
 })
-export class DateService {
+export class FaqService {
   private readonly SERVER_URL = environment.SERVER_URL;
-  private dateSubject: Subject<DeliveryDate[]>;
+  private faqSubject: Subject<Faq[]>;
 
   constructor(private  http: HttpClient, private router: Router) {
-    this.dateSubject = new Subject<DeliveryDate[]>();
+    this.faqSubject = new Subject<Faq[]>();
     router.events.subscribe(e => {
       console.log(e);
     });
   }
-  getDeliveryDates(): Observable<DeliveryDate[]> {
-    return  this.http.get<DateResponse>(this.SERVER_URL+'/delivery/GetNextPossibles',{withCredentials: true} )
+  getFaqs(): Observable<Faq[]> {
+    return this.http.get<FaqResponse>(this.SERVER_URL + '/faq/get', {withCredentials: true})
       .pipe(map(resp => resp.list));
   }
+
 }

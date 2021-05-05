@@ -26,9 +26,18 @@ export class CartPageComponent implements OnInit {
   });
   registrationForm: FormGroup;
   deliveryDates: DeliveryDate[];
+  dDate: DeliveryDate;
 
   constructor(public cartService: CartService, private userService: UserService,
               private router: Router, private dateService: DateService) {
+    this.dDate = {
+      active: false, deliveryDayID: 0, listOfGaps: [],
+      year: 2000,
+      month: 'sajnos nincs elérhetö dátum',
+      dayOfTheMonth: 0,
+      dayOfWeek: 'XXX'
+
+    }
     this.firstName = '';
     this.productsInCart = [];
     this.user = {
@@ -53,7 +62,7 @@ export class CartPageComponent implements OnInit {
       console.log(state);
     });
     // @ts-ignore
-    this.registrationForm = {firstName: '', lastName: '', email: '',
+    this.registrationForm = {firstName: '', lastName: '', username: '',
        phoneNumber: '',
       address_delivery: null, city_delivery: null, postCode_delivery: 0
     };
@@ -88,12 +97,16 @@ export class CartPageComponent implements OnInit {
   getDeliveryDates(): void {
     this.dateService.getDeliveryDates().subscribe(
       resp => {
-        this.deliveryDates = resp
+        this.deliveryDates = resp;
+        console.log(this.deliveryDates[0].listOfGaps[0]);
+      },
+      error => {
+        this.deliveryDates.push(this.dDate);
+        this.deliveryDates.push(this.dDate);
       });
 
   }
   delete(pr: Product): void{
-    console.log(pr);
     for (let i = 0; i < this.productsInCart.length; ++i){
       if (this.productsInCart[i].id === pr.id) {
         this.productsInCart.splice(i, 1);

@@ -1,0 +1,18 @@
+<div class="card mt-5 mb-6" id="card">
+  <div class="card-body">
+    <h5 class="card-title">{{pr.name}}</h5>
+    <p>{{pr.description}} <br>
+      {{pr.price}}  Ft</p>
+    <div style="display: inline-block ">
+      <span class="minus">Mennyiség: </span>
+      <label>
+        <input type="number"  name="mennyiseg" placeholder="0" min="1" step="1"
+               [(ngModel)]="pr.quantity">
+      </label>
+      <span>{{pr.unit}}</span>
+    </div>
+    <div>
+      <button class="btn btn-outline-dark" [disabled]="pr.quantity == 0 "  (click)="addToCart(pr)">Kosárba</button>
+    </div>
+  </div>
+</div>

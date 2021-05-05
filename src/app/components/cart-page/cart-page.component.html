@@ -143,11 +143,11 @@
           <tr>
             <td class="table align-middle" colspan= "6" *ngIf="productsInCart.length === 0">A kosár még üres.</td>
           </tr>
+          <tr>
+            <td class="table align-middle" colspan= "6">{{productsInCart.length}} soros a terméklista.  Termékek összesített ára:{{sumPrice}} Ft.</td>
+          </tr>
           </tbody>
         </table>
-        <div class="row">
-          <p>{{productsInCart.length}} soros a terméklista.  Termékek ára:{{sumPrice}} Ft.  </p>
-        </div>
       </div>
   </div>
 
@@ -163,14 +163,14 @@
             <input type="radio" class="form-check-input" id="date1" [value]="deliveryDates[0].dayOfWeek"
                    formControlName="reactiveRadio2" name="reactiveRadio2">
             <label class="form-check-label" for="date1">{{deliveryDates[0].year}}-{{deliveryDates[0].month}}
-              -{{deliveryDates[0].dayOfMonth}} , {{deliveryDates[0].dayOfWeek}}</label>
+              -{{deliveryDates[0].dayOfTheMonth}} , {{deliveryDates[0].dayOfWeek}}</label>
           </div>
 
           <div class="form-check">
             <input type="radio" class="form-check-input" id="date2" [value]="deliveryDates[1].dayOfWeek"
                    formControlName="reactiveRadio2" name="reactiveRadio2">
             <label class="form-check-label" for="date2">{{deliveryDates[1].year}}-{{deliveryDates[1].month}}
-              -{{deliveryDates[1].dayOfMonth}} , {{deliveryDates[1].dayOfWeek}}</label>
+              -{{deliveryDates[1].dayOfTheMonth}} , {{deliveryDates[1].dayOfWeek}}</label>
           </div>
         </form>
         </div>

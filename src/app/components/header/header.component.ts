@@ -9,6 +9,7 @@ import {UserResponse} from "../../interfaces/user-response";
 import {EventEmitter} from "events";
 import {CartService} from "../../services/cart.service";
 import {map} from "rxjs/operators";
+import {Product} from "../../interfaces/product";
 
 @Component({
   selector: 'app-header',
@@ -27,13 +28,11 @@ export class HeaderComponent implements OnInit {
   userRole: string | null;
   firstName: string | null;
   numberOfItems: number;
-  @Input()
-  countChange(event: number){
-    this.numberOfItems = event;
-  }
+  productsInCart: Product[];
 
   constructor(private modalService: NgbModal,private userService: UserService,
               private router: Router, private cartService: CartService) {
+    this.productsInCart = [];
     this.showLoginError = false;
     this.productName = '';
     this.login ={
@@ -69,11 +68,12 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.productsInCart = this.cartService.items;
+    this.numberOfItems = this.productsInCart.length;
   }
   openModifyModal(): void{
     const modalRef = this.modalService.open(CartComponent);
-    console.log(this.cartService.items.length);
+
   }
   submit(): void {
    // this.login.username = this.login.value.username;

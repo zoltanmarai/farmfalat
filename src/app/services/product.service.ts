@@ -49,4 +49,8 @@ export class ProductService {
     return this.http.get<ProductResponse>(this.SERVER_URL + '/product/getProductsByCategoryID/' + id, {withCredentials: true})
       .pipe(map(resp => resp.list));
   }
+  getProductById(id: number): Observable<Product> {
+    return this.http.get<ProductResponse>(this.SERVER_URL + '/product/getProductByID/' + id, {withCredentials: true})
+      .pipe(map(resp => resp.list[0]));
+  }
 }

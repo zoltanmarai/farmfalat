@@ -1,0 +1,41 @@
+<app-header></app-header>
+<main>
+  <div class="container">
+    <form (submit)="submit()" [formGroup]="catForm">
+     <h3> Új Termékkategória felvitele</h3>
+      <div class="form-group">
+        <div class="mb-6 row">
+          <label for="formControl-id" class="col-sm-6 col-form-label"> Termékkategória id:</label>
+          <div class="col-sm-6">
+            <input type="number" class="form-control" id="formControl-id" formControlName="id" name="id"
+                   [ngClass]="{'is-invalid': catForm.controls.id.invalid && catForm.controls.id.touched}">
+            <div class="invalid-feedback" *ngIf="catForm.controls.id.errors?.required">Adj meg egy id számot</div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="mb-6 row">
+          <label for="formControl-categoryName" class="col-sm-6 col-form-label"> Termékkategória név:</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" id="formControl-categoryName" formControlName="categoryName" name="categoryName"
+                   [ngClass]="{'is-invalid': catForm.controls.categoryName.invalid && catForm.controls.categoryName.touched}">
+            <div class="invalid-feedback" *ngIf="catForm.controls.categoryName.errors?.required">Adj meg egy nevet</div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="mb-6 row">
+          <label for="formControl-parentCategoryID" class="col-sm-6 col-form-label"> Őskategória id:</label>
+          <div class="col-sm-6">
+            <input type="number" class="form-control" id="formControl-parentCategoryID" formControlName="parentCategoryID" name="parentCategoryID"
+                   [ngClass]="{'is-invalid': catForm.controls.parentCategoryID.invalid && catForm.controls.parentCategoryID.touched}">
+            <div class="invalid-feedback" *ngIf="catForm.controls.parentCategoryID.errors?.required">Adj meg egy id számot</div>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn-sm btn-outline-dark" [disabled]="catForm.invalid"  >Mentés</button>
+      <button type="button" class="btn-sm btn-outline-dark" routerLink="/product-categories"> Vissza</button>
+    </form>
+  </div>
+</main>
+<app-footer></app-footer>

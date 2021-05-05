@@ -25,11 +25,11 @@
     <tr>
     <td class="table align-middle" colspan= "6" *ngIf="productsInCart.length === 0">A kosár még üres.</td>
     </tr>
+    <tr>
+      <td class="table align-middle" colspan= "6">{{productsInCart.length}} soros a terméklista.  Termékek összesített ára:{{sumPrice}} Ft.</td>
+    </tr>
     </tbody>
   </table>
-  <div class="row">
-  <p>{{productsInCart.length}} soros a terméklista.  Termékek ára:{{sumPrice}} Ft.  </p>
-  </div>
 </div>
   <div class="modal-footer">
   <div style="text-align: right">

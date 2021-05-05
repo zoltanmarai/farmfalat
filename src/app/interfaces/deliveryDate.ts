@@ -1,6 +1,11 @@
+import {DeliveryWindow} from "./delivery-window";
+
 export interface DeliveryDate {
+  deliveryDayID: number;
   year: number;
   month: string;
-  dayOfMonth: number;
+  dayOfTheMonth: number;
   dayOfWeek: string;
+  listOfGaps: DeliveryWindow[];
+  active: boolean;
 }

@@ -1,6 +1,18 @@
 <app-header></app-header>
 <main>
-  <p>about works!</p>
+  <div class="container">
+    <ngb-accordion id="accordion1"  [closeOthers]="true">
+      <ngb-panel class="panel1" *ngFor=" let f of faqArr">
+        <ng-template ngbPanelTitle>
+          <span>&#9733; <b>{{f.question}}</b>  &#9733;</span>
+        </ng-template>
+        <ng-template ngbPanelContent class="temp1">
+         {{f.answer}}
+        </ng-template>
+      </ngb-panel>
+    </ngb-accordion>
+
+  </div>
 </main>
 <app-footer></app-footer>
 

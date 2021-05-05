@@ -33,6 +33,10 @@ import { SloganTablerowComponent } from './components/slogan-tablerow/slogan-tab
 import { OrderMaintenanceComponent } from './components/order-maintenance/order-maintenance.component';
 import { UserTablerowComponent } from './components/user-tablerow/user-tablerow.component';
 import { UserFullinfoComponent } from './components/user-fullinfo/user-fullinfo.component';
+import { ProductCategoriesComponent } from './components/product-categories/product-categories.component';
+import { ProductCategoryNewComponent } from './components/product-category-new/product-category-new.component';
+import { ProductCategoryTableRowComponent } from './components/product-category-table-row/product-category-table-row.component';
+import { PackagesCardComponent } from './components/packages-card/packages-card.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +67,11 @@ import { UserFullinfoComponent } from './components/user-fullinfo/user-fullinfo.
     SloganTablerowComponent,
     OrderMaintenanceComponent,
     UserTablerowComponent,
-    UserFullinfoComponent
+    UserFullinfoComponent,
+    ProductCategoriesComponent,
+    ProductCategoryNewComponent,
+    ProductCategoryTableRowComponent,
+    PackagesCardComponent
   ],
     imports: [
         BrowserModule,
@@ -71,7 +79,7 @@ import { UserFullinfoComponent } from './components/user-fullinfo/user-fullinfo.
         NgbModule,
         FormsModule,
         ReactiveFormsModule,
-        HttpClientModule
+        HttpClientModule,
     ],
   providers: [],
   bootstrap: [AppComponent]

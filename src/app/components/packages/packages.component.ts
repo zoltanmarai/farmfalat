@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./packages.component.css']
 })
 export class PackagesComponent implements OnInit {
+  id: number;
 
-  constructor() { }
+  constructor() {
+   this.id = 0;
+  }
 
   ngOnInit(): void {
   }

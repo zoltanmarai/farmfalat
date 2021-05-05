@@ -1,0 +1,46 @@
+#card1 {
+  background-image: url('https://images.unsplash.com/photo-1503631285924-e1544dce8b28?auto=format&fit=crop&w=1234&q=80');
+  background-position: center;
+  background-size: cover;
+}
+#card2 {
+  background-image: url('https://images.unsplash.com/photo-1492760864391-753aaae87234?auto=format&fit=crop&w=1336&q=80');
+  background-position: center;
+  background-size: cover;
+}
+#card3{
+  background-image: url('https://images.unsplash.com/photo-1510425463958-dcced28da480?auto=format&fit=crop&w=1352&q=80');
+  background-position: center;
+  background-size: cover;
+
+}
+.mb-0 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+button{
+  margin-bottom: 25px;
+
+}
+.item {
+  flex: 1;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  transition: flex 0.8s ease
+}
+
+.item:hover{
+  flex: 7;}
+.accordion{
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+
+}
+.card-header{
+  background-color: rgba(255,255,255,0.3);
+}
+.card-body{
+  background-color: rgba(255,255,255,0.5);
+}
