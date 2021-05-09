@@ -14,11 +14,15 @@ export class CartComponent implements OnInit {
   change: EventEmitter<number> = new EventEmitter<number>();
   numberOfItems: number;
   sumPrice: number;
+  maxPrice: number;
+  deliveryFee: number;
 
   constructor(public activeModal: NgbActiveModal, public cartService: CartService) {
     this.productsInCart = [];
     this.numberOfItems = 0;
     this.sumPrice = 0;
+    this.maxPrice = 0;
+    this.deliveryFee = 0;
   }
 
   ngOnInit(): void {
@@ -26,6 +30,8 @@ export class CartComponent implements OnInit {
     this.numberOfItems = this.productsInCart.length;
     this.change.emit(this.numberOfItems);
     this.sumPrice =  this.cartService.sumPrice();
+    this.maxPrice = this.cartService.getSumPrice();
+    this.deliveryFee = this.maxPrice-this.sumPrice;
   }
   submit(): void {
     this.activeModal.close();
@@ -37,6 +43,8 @@ export class CartComponent implements OnInit {
         this.productsInCart.splice(i, 1);
         this.change.emit(this.numberOfItems);
         this.sumPrice =  this.cartService.sumPrice();
+        this.maxPrice = this.cartService.getSumPrice();
+        this.deliveryFee = this.maxPrice-this.sumPrice;
       }
     }
   }

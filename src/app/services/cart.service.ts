@@ -1,19 +1,22 @@
 import { Injectable } from '@angular/core';
 import {Product} from "../interfaces/product";
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
   items: Product[];
   totalPrice: number;
+  maxPrice;
 
   constructor() {
     this.items = [];
     this.totalPrice = 0;
+    this.maxPrice =0;
   }
   // @ts-ignore
-  addToCart(product: { imageId: number; quantity: number; price: number; name: string; id: number; subTotal: number }) {
+  addToCart(product: Product) {
     // @ts-ignore
     this.items.push(product);
     console.log(this.items);
@@ -45,5 +48,14 @@ export class CartService {
     }
     console.log(this.totalPrice);
     return this.totalPrice;
+  }
+  getSumPrice(): number {
+
+    if(this.totalPrice < 10000){
+      this.maxPrice = 1000 + this.totalPrice;
+    } else{
+      this.maxPrice = this.totalPrice;
+    }
+    return this.maxPrice;
   }
 }

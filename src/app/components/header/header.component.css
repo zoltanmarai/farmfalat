@@ -7,15 +7,25 @@
   cursor: pointer;
   background-color: rgba(229, 228, 255, 0.0);
   color: rgba(33,37,41,1);
-  border: none;
+
 }
+.bg-light{
+  background-color: antiquewhite !important;
+}
+.dropdown-menu {
+  background-color: antiquewhite !important;
+}
+
 .material-icons {
   margin-right: 5px;
   color: rgba(33,37,41,1);
 }
+.container-fluid {
+  background-color: antiquewhite;
+}
 
-.navbar {
-  background-color: rgba(0,255,80,0.3);
+.collapse {
+  background-color: antiquewhite;
 }
 p{
   margin: 12px;
@@ -25,6 +35,7 @@ p{
   margin: 0 4px 4px 4px;
 }
 .wrapper{
+  background-color: antiquewhite;
   position: relative;
 }
 .wrapper span{

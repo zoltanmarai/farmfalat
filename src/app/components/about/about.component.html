@@ -1,10 +1,11 @@
 <app-header></app-header>
 <main>
   <div class="container">
+    <h4>Gyakran feltett kérdések</h4>
     <ngb-accordion id="accordion1"  [closeOthers]="true">
-      <ngb-panel class="panel1" *ngFor=" let f of faqArr">
+      <ngb-panel  *ngFor=" let f of faqArr">
         <ng-template ngbPanelTitle>
-          <span>&#9733; <b>{{f.question}}</b>  &#9733;</span>
+          <span> {{f.question}}  </span>
         </ng-template>
         <ng-template ngbPanelContent class="temp1">
          {{f.answer}}

@@ -1,7 +1,7 @@
-<div class="card mt-5 mb-6" id="card">
+<div class="card" id="card">
   <div class="card-body">
     <h5 class="card-title">{{pr.name}}</h5>
-    <p>{{pr.description}} <br>
+    <p>
       {{pr.price}}  Ft</p>
     <div style="display: inline-block ">
       <span class="minus">Mennyiség: </span>
@@ -12,7 +12,7 @@
       <span>{{pr.unit}}</span>
     </div>
     <div>
-      <button class="btn btn-outline-dark" [disabled]="pr.quantity == 0 "  (click)="addToCart(pr)">Kosárba</button>
+      <button class="btn btn-sm btn-outline-dark" [disabled]="pr.quantity == 0 "  (click)="addToCart(pr)">Kosárba</button>
     </div>
   </div>
 </div>
