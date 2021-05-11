@@ -1,7 +1,25 @@
 <app-header></app-header>
 <main>
   <div class="container">
-    <p>order-maintenance works!</p>
+    <div style="text-align: center">
+      <button type="submit" class="btn btn-outline-dark" (click)="getAllOrders()"> Összes megrendelés</button>
+      <button type="submit" class="btn btn-outline-dark" (click)="getUndelivered()"> Kiszállítandó megrendelés</button>
+    </div>
+    <table class="table table-striped table-bordered ">
+      <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Név</th>
+        <th scope="col">Email cím</th>
+        <th scope="col">Telefonszám</th>
+        <th scope="col">Rendelés ideje</th>
+        <th scope="col">Kiszállítva</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr app-orders-tablerow *ngFor="let u of orders"  [order]="u"></tr>
+      </tbody>
+    </table>
   </div>
 </main>
 <app-footer></app-footer>

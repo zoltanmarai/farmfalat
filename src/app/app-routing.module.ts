@@ -24,6 +24,7 @@ import {UserFullinfoComponent} from "./components/user-fullinfo/user-fullinfo.co
 import {ProductCategoriesComponent} from "./components/product-categories/product-categories.component";
 import {ProductCategoryNewComponent} from "./components/product-category-new/product-category-new.component";
 import {ProductCategoryTableRowComponent} from "./components/product-category-table-row/product-category-table-row.component";
+import {OrdersTablerowComponent} from "./components/orders-tablerow/orders-tablerow.component";
 
 
 const routes: Routes = [
@@ -51,7 +52,8 @@ const routes: Routes = [
   {path: 'user-fullinfo/:id', component: UserFullinfoComponent},
   {path: 'product-categories', component: ProductCategoriesComponent},
   {path: 'product-category-new', component: ProductCategoryNewComponent},
-  {path: 'product-category-tableRow', component: ProductCategoryTableRowComponent}
+  {path: 'product-category-tableRow', component: ProductCategoryTableRowComponent},
+  {path: 'order-tablerow', component: OrdersTablerowComponent}
 ];
 
 

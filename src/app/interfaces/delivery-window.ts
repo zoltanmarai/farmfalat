@@ -3,4 +3,5 @@ export interface DeliveryWindow {
   gapStartsAt: number;
   counter: number;
   available: boolean;
+  deliveryGapString: string;
 }

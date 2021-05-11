@@ -8,6 +8,8 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {DateService} from "../../services/date.service";
 import {DeliveryDate} from "../../interfaces/deliveryDate";
 import {Order} from "../../interfaces/order";
+import {OrderService} from "../../services/order.service";
+import {OrderResponce} from "../../interfaces/order-responce";
 
 
 @Component({
@@ -34,9 +36,11 @@ export class CartPageComponent implements OnInit {
   dDate: DeliveryDate;
   order: Order;
   dGap: number;
+  orderResp: OrderResponce;
+  showRespSuccess: boolean;
 
   constructor(public cartService: CartService, private userService: UserService,
-              private router: Router, private dateService: DateService) {
+              private router: Router, private dateService: DateService, private orderService: OrderService) {
     this.dGap = 0;
     this.i = 2;
     this.dDate = {
@@ -65,8 +69,12 @@ export class CartPageComponent implements OnInit {
       phoneNumber: '',
       active: false
     };
-    this.reactiveForm.controls['reactiveRadio'].valueChanges.subscribe((state: any) => {
-      console.log(state);
+    this.reactiveForm.controls['reactiveRadio'].valueChanges.subscribe((state: number) => {
+      if(state === 0){
+        this.order.paymentType = 'CASH';
+      } else{
+        this.order.paymentType = 'CARD';
+      }
     });
     this.reactiveForm2.controls['reactiveRadio2'].valueChanges.subscribe((s: number) => {
       console.log(s);
@@ -75,7 +83,7 @@ export class CartPageComponent implements OnInit {
     // @ts-ignore
     this.registrationForm = {firstName: '', lastName: '', username: '',
        phoneNumber: '',
-      address_delivery: null, city_delivery: null, postCode_delivery: 0
+      address_delivery: '', city_delivery: '', postCode_delivery: 0
     };
     // @ts-ignore
     this.deliveryDates = { deliveryDayID: 0,
@@ -87,22 +95,26 @@ export class CartPageComponent implements OnInit {
         deliveryGapsID: 0,
         gapStartsAt: 0,
         counter: 0,
-        available: false
+        available: false,
+        deliveryGapString: ''
       },
       active: false
     };
     this.sumPrice = 0;
     // @ts-ignore
     this.order = {
-      user: this.user,
-      deliveryDate:{ deliveryDayID: 0,
-                     year: 2000,
-                    month: '',
-                    dayOfTheMonth: 0,
-                    dayOfWeek: '',
-                    listOfGaps: [],
-                    active: false},
-      orderedItemList: this.productsInCart,
+      firstName: '',
+      lastName: '',
+      username: '',
+      phoneNumber: '',
+      userID: 0,
+      postCode_delivery: 0,
+      city_delivery: '',
+      simpleAddress_delivery: '',
+      comment_delivery: '',
+      deliveryDayID: 0,
+      deliveryGapsID: 0,
+      ordersItemList: this.productsInCart,
       paymentType: '',
       status: false,
       deliveryFee: 0
@@ -111,8 +123,14 @@ export class CartPageComponent implements OnInit {
     this.deliveryForm = {deliveryGapsID: 0,
       gapStartsAt: 0,
       counter: 0,
-      available: false
-    }
+      available: false,
+      deliveryGapString: ''
+    };
+    this.orderResp = {
+      successful: false,
+      ID: 0
+    };
+    this.showRespSuccess = false;
   }
   ngOnInit(): void {
     this.getDeliveryDates();
@@ -172,15 +190,52 @@ export class CartPageComponent implements OnInit {
   }
   submit(): void {
 
-    this.order.deliveryDate = this.deliveryDates[this.i];
-    this.order.deliveryDate.listOfGaps[0].deliveryGapsID = this.deliveryForm.value.deliveryGapsID;
+    this.order.deliveryDayID = this.deliveryDates[this.i].deliveryDayID;
+    this.order.deliveryGapsID = this.deliveryForm.value.deliveryGapsID;
+    if(this.firstName!== '' || this.firstName !== null){
+      this.order.firstName = this.user.firstName;
+      this.order.lastName = this.user.lastName;
+      this.order.phoneNumber = this.user.phoneNumber;
+      this.order.username = this.user.username;
+    // @ts-ignore
+      this.order.userID = this.user.userID;
+      this.order.postCode_delivery = this.user.postCode_delivery;
+    // @ts-ignore
+      this.order.city_delivery = this.user.city_delivery;
+    // @ts-ignore
+      this.order.simpleAddress_delivery = this.user.simpleAddress_delivery;
+    }else{
+      this.order.firstName = this.registrationForm.value.firstName;
+      this.order.lastName = this.registrationForm.value.lastName;
+      this.order.phoneNumber = this.registrationForm.value.phoneNumber;
+      this.order.username = this.registrationForm.value.username;
+      // @ts-ignore
+      this.order.userID = 0;
+      this.order.postCode_delivery = this.registrationForm.value.postCode_delivery;
+      // @ts-ignore
+      this.order.city_delivery = this.registrationForm.value.city_delivery;
+      // @ts-ignore
+      this.order.simpleAddress_delivery = this.registrationForm.value.simpleAddress_delivery;
 
-    this.order.user = this.user;
-    this.order.orderedItemList = this.productsInCart;
-    this.order.paymentType = 'CASH';
+    }
+    this.order.ordersItemList = this.productsInCart;
     console.log(this.order);
+    this.orderService.newOrder(this.order).subscribe( resp => {
+      console.log(resp);
+      this.orderResp = resp;
+      if(this.orderResp.successful){
+          this.showRespSuccess = true;
+          setTimeout( () =>{
+            this.cartService.clearCart();
+            this.router.navigate(['main']);
+          },3000);
+      }else{
+
+      }
+    });
 
   }
+
 
 }
 

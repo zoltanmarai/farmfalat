@@ -192,9 +192,9 @@
             <select class="form-control" id="formControl-deliveryGapsID" formControlName="deliveryGapsID" name="deliveryGapsID"
                     [ngClass]="{'is-invalid': deliveryForm.controls.deliveryGapsID.invalid && deliveryForm.controls.deliveryGapsID.touched}">
               <option></option>
-              <option *ngFor="let u of deliveryDates[i].listOfGaps">{{u.deliveryGapsID}}</option>
+              <option *ngFor="let u of deliveryDates[i].listOfGaps" [value]="u.deliveryGapsID">{{u.deliveryGapString}}</option>
             </select>
-            <div class="invalid-feedback" *ngIf="deliveryForm.controls.deliveryGapsID.errors?.required">Adj mértékegységet:</div>
+            <div class="invalid-feedback" *ngIf="deliveryForm.controls.deliveryGapsID.errors?.required">Válasz idöpontot.</div>
           </div>
         </div>
       </div>
@@ -210,23 +210,30 @@
        <div *ngIf=" firstName !== '' && firstName !== null">
           <form [formGroup]="reactiveForm">
             <div class="form-check">
-               <input type="radio" class="form-check-input" id="materialUnchecked2" [value]="false"
+               <input type="radio" class="form-check-input" id="materialUnchecked2" [value]="0"
                  formControlName="reactiveRadio" name="reactiveRadio">
-               <label class="form-check-label" for="materialUnchecked2">Reactive unchecked</label>
+               <label class="form-check-label" for="materialUnchecked2">Átvételkor kézpénzzel</label>
            </div>
 
         <div class="form-check">
-          <input type="radio" class="form-check-input" id="materialChecked2" [value]="true"
+          <input type="radio" class="form-check-input" id="materialChecked2" [value]="1"
                  formControlName="reactiveRadio" name="reactiveRadio">
-          <label class="form-check-label" for="materialChecked2">Reactive checked</label>
+          <label class="form-check-label" for="materialChecked2">Átvételkor kártyával</label>
         </div>
       </form>
     </div>
   </div>
   </div>
+  <div  class="alert alert-success" *ngIf="showRespSuccess" >
+    Megrendelését továbbítottuk, azonosítója: {{orderResp.ID}}
+  </div>
   <div  style="text-align: right">
     <button type="button" class="btn btn-outline-dark" routerLink="/main">Vissza</button>
-    <button type="submit" class="btn btn-outline-success " (click)="submit()">Megrendelés</button>
+    <button type="submit" class="btn btn-outline-success " (click)="submit()"
+            [disabled]="((this.i === 2)|| (this.sumPrice === 0) || ((this.firstName == ''
+      || this.firstName == null) && this.registrationForm.invalid) || deliveryForm.invalid)"
+    >Megrendelés</button>
+
   </div>
 
   </div>

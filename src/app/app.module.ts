@@ -37,6 +37,7 @@ import { ProductCategoriesComponent } from './components/product-categories/prod
 import { ProductCategoryNewComponent } from './components/product-category-new/product-category-new.component';
 import { ProductCategoryTableRowComponent } from './components/product-category-table-row/product-category-table-row.component';
 import { PackagesCardComponent } from './components/packages-card/packages-card.component';
+import { OrdersTablerowComponent } from './components/orders-tablerow/orders-tablerow.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { PackagesCardComponent } from './components/packages-card/packages-card.
     ProductCategoriesComponent,
     ProductCategoryNewComponent,
     ProductCategoryTableRowComponent,
-    PackagesCardComponent
+    PackagesCardComponent,
+    OrdersTablerowComponent
   ],
     imports: [
         BrowserModule,

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {User} from "../../interfaces/user";
 import {UserResponse} from "../../interfaces/user-response";
 import {UserService} from "../../services/user.service";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-user-maintenance',
@@ -13,7 +13,8 @@ export class UserMaintenanceComponent implements OnInit {
   user:User;
   usersArr: User[];
   constructor(private userService: UserService,
-              private router: Router) {
+              private router: Router,
+              private route: ActivatedRoute) {
     this.user = { city_billing: null , city_delivery: null ,
       postCode_billing: 0, postCode_delivery: 0, simpleAddress_billing: null, simpleAddress_delivery: null,
       firstName: '',

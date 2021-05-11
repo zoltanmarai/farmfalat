@@ -24,11 +24,13 @@ export class RegistrationComponent implements OnInit {
   login: Login;
   userResponse: UserResponse;
   isMoreAddress: boolean;
+  showRegSuccess: boolean;
  // confirm: ConfirmMessageResponse;
 
 
   constructor( private userService: UserService,
               private router: Router, private tokenService: TokenService) {
+    this.showRegSuccess = false;
     this.isMoreAddress = false;
     this.successful = false;
     // @ts-ignore
@@ -115,9 +117,10 @@ export class RegistrationComponent implements OnInit {
       console.log(resp);
       this.successful = resp;
       if(this.successful) {
+        this.showRegSuccess = true;
+        setTimeout(() => {
         this.login.username = this.registrationForm.value.username;
         this.login.password = this.registrationForm.value.password;
-        console.log(this.login);
         this.userService.login(this.login).subscribe(resp => {
         this.userResponse = resp;
         if(this.userResponse.succesful){
@@ -127,8 +130,13 @@ export class RegistrationComponent implements OnInit {
           this.router.navigate(['main']);
         }else{}
         });
-
+        },  2000);
       }else{}
+
     });
+
   }
+  changeVal(): void{
+    this.showRegSuccess = false;
+}
 }

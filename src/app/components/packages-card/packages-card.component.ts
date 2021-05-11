@@ -42,11 +42,11 @@ export class PackagesCardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.pr.quantity = 0;
     this.getProductByID(this.id);
   }
 
   addToCart(pr:Product) {
+    this.pr = pr;
 
 
     // @ts-ignore
@@ -68,7 +68,7 @@ export class PackagesCardComponent implements OnInit {
     this.productService.getProductById(id).subscribe(
       p => {
         this.pr = p;
-        console.log(this.pr);
+        this.pr.quantity = 0;
       });
   }
 
