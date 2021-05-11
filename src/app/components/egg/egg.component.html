@@ -1,8 +1,14 @@
 <app-header></app-header>
 <main >
   <div class="container">
-    <div class="alert alert-danger" *ngIf="products.length == 0">
-      Technikai probléma, kérem próbálja később.
+    <div class="alert alert-warning" *ngIf="products.length == 0 && showError == false">
+      <div class="d-flex align-items-center">
+        <strong>Loading...</strong>
+        <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+      </div>
+    </div>
+    <div class="alert alert-danger" *ngIf="showError == true">
+      Sajnos, nincs ilyen termékünk.
     </div>
     <div class="row" *ngIf="products.length !== 0" >
       <div class="col-md-6 col-lg-4" *ngFor="let pr of products" >

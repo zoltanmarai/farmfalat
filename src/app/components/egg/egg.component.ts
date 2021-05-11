@@ -13,10 +13,12 @@ export class EggComponent implements OnInit {
   products: Product[];
   @Output()
   productName: string | null;
+  showError: boolean;
 
   constructor(private productService: ProductService,private route: ActivatedRoute) {
     this.products = [];
     this.productName = '';
+    this.showError = false;
   }
 
   ngOnInit(): void {
@@ -25,11 +27,16 @@ export class EggComponent implements OnInit {
     this.route.params.subscribe(s => {
       console.log(s);
       this.productName = s.productName;
+      this.showError = false;
       this.productService.productSearchByName(this.productName).subscribe(
         pr => {
           this.products = pr;
           console.log(this.products);
-        });
+        },
+        error => {
+          this.showError = true;
+        }
+        );
     });
   }
 
