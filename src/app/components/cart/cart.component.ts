@@ -37,7 +37,6 @@ export class CartComponent implements OnInit {
     this.activeModal.close();
   }
   delete(pr: Product): void{
-    console.log(pr);
       for (let i = 0; i < this.productsInCart.length; ++i){
       if (this.productsInCart[i].id === pr.id) {
         this.productsInCart.splice(i, 1);

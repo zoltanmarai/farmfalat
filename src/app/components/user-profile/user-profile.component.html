@@ -194,21 +194,24 @@
             </div>
           </div>
         </div>
-        <div class="row" id="row1">
+
           <div class="alert alert-danger" *ngIf="showModifyError">
             Hoppá, az adat módosítás nem sikerült. Próbáld meg később!
           </div>
           <div class="alert alert-success" *ngIf="successful">
             Sikeres módosítás.
           </div>
-          <button  id="submit" type="submit" class="btn btn-outline-dark" [disabled]="profileForm.invalid">Módosítás beküldés
-          </button>
-        </div>
+          <div style="text-align: end">
+             <button  id="submit" type="submit" class="btn btn-outline-dark" [disabled]="profileForm.invalid">Módosítás beküldés
+             </button>
+          </div>
+
       </div>
 
     </form>
-    <div>
-      <button type="button" class="btn btn-dark" (click)="removeUser()"> Profil törlés</button>
+    <p style="text-align: end">Ha véglegesen törölni szeretnéd a profilod erre a gombra kattints.</p>
+    <div style="text-align: end">
+      <button type="button" class="btn btn-outline-light" (click)="removeUser()"> Profil törlés</button>
     </div>
 
   </div>

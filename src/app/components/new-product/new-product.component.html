@@ -41,6 +41,7 @@
                <div class="col-sm-6">
                  <select class="form-control" id="formControl-unit" formControlName="unit" name="unit"
                         [ngClass]="{'is-invalid': productForm.controls.unit.invalid && productForm.controls.unit.touched}">
+                   <option></option>
                    <option *ngFor="let u of unitList">{{u}}</option>
                  </select>
                  <div class="invalid-feedback" *ngIf="productForm.controls.unit.errors?.required">Adj mértékegységet:</div>

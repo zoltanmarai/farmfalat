@@ -17,7 +17,7 @@ export class OrderMaintenanceComponent implements OnInit {
                private orderService: OrderService) {
     this.orders = [];
     this.order = {
-      ID: 0,
+      id: 0,
       orderTime: '',
       firstName: '',
       lastName: '',

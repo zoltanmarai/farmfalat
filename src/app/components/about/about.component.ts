@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {FaqService} from "../../services/faq.service";
 import {Faq} from "../../interfaces/faq";
+import {Aboutus} from "../../interfaces/aboutus";
 
 
 @Component({
@@ -12,7 +13,7 @@ import {Faq} from "../../interfaces/faq";
 export class AboutComponent implements OnInit {
   faq: Faq;
   faqArr: Faq[];
-
+  aboutUs: Aboutus;
   constructor(private route: ActivatedRoute,
               private router: Router,
               private faqService: FaqService) {
@@ -20,11 +21,18 @@ export class AboutComponent implements OnInit {
       question : '', answer: ''
     };
     this.faqArr = [];
+    this.aboutUs = {
+      title: '',
+      subject: ''
+    };
   }
 
   ngOnInit(): void {
     this.faqService.getFaqs().subscribe( resp => {
       this.faqArr = resp;
+    });
+    this.faqService.getAboutUs().subscribe( resp => {
+      this.aboutUs = resp;
     });
   }
 

@@ -2,8 +2,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import {User} from "../../interfaces/user";
 import {UserService} from "../../services/user.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {HeaderComponent} from "../header/header.component";
 import {Router} from "@angular/router";
+import {CartService} from "../../services/cart.service";
 
 @Component({
   selector: 'app-user-profile',
@@ -14,13 +14,12 @@ export class UserProfileComponent implements OnInit {
   @Input()
    user: User;
   profileForm: FormGroup;
-  private headers: any;
   successful: boolean;
   showModifyError: boolean;
   isRemoved: boolean;
   showRemoveError: boolean;
 
-  constructor(private  userService: UserService, private router: Router) {
+  constructor(private  userService: UserService, private router: Router, private cartService: CartService) {
     this.isRemoved = false;
     this.showRemoveError = false;
     this.showModifyError = false;
@@ -59,16 +58,12 @@ export class UserProfileComponent implements OnInit {
     };
 
   }
-
-  // @ts-ignore
-  private myCompHeader: HeaderComponent;
   ngOnInit(): void {
     this.createForm();
     this.userService.getOneUser(parseInt(<string>sessionStorage.getItem('id'),10)).subscribe(
       resp => {
         console.log(resp);
        this.user = resp;
-        console.log (this.user);
         this.createForm();
       });
   }
@@ -93,6 +88,7 @@ export class UserProfileComponent implements OnInit {
 
   submit(): void {
     this.showModifyError = false;
+    console.log(this.profileForm.value);
     this.userService.userModify(parseInt(<string>sessionStorage.getItem('id'),10),this.profileForm.value).subscribe(resp => {
       this.successful = resp.successful;
       if(!this.successful){
@@ -108,7 +104,7 @@ export class UserProfileComponent implements OnInit {
       this.isRemoved = resp.successful;
       if(this.isRemoved) {
         sessionStorage.clear();
-
+        this.cartService.clearCart();
         this.router.navigate(['main']);
       }else{
         this.showRemoveError = true;

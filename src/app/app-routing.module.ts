@@ -25,6 +25,10 @@ import {ProductCategoriesComponent} from "./components/product-categories/produc
 import {ProductCategoryNewComponent} from "./components/product-category-new/product-category-new.component";
 import {ProductCategoryTableRowComponent} from "./components/product-category-table-row/product-category-table-row.component";
 import {OrdersTablerowComponent} from "./components/orders-tablerow/orders-tablerow.component";
+import {PartnerMaintenanceComponent} from "./components/partner-maintenance/partner-maintenance.component";
+import {PartnerTablerowComponent} from "./components/partner-tablerow/partner-tablerow.component";
+import {NewPartnerComponent} from "./components/new-partner/new-partner.component";
+import {PartnerCardComponent} from "./components/partner-card/partner-card.component";
 
 
 const routes: Routes = [
@@ -53,7 +57,11 @@ const routes: Routes = [
   {path: 'product-categories', component: ProductCategoriesComponent},
   {path: 'product-category-new', component: ProductCategoryNewComponent},
   {path: 'product-category-tableRow', component: ProductCategoryTableRowComponent},
-  {path: 'order-tablerow', component: OrdersTablerowComponent}
+  {path: 'order-tablerow', component: OrdersTablerowComponent},
+  {path: 'partner-maintenance', component: PartnerMaintenanceComponent},
+  {path: 'partner-tablerow', component: PartnerTablerowComponent},
+  {path: 'new-partner', component: NewPartnerComponent},
+  {path: 'partner-card', component: PartnerCardComponent}
 ];
 
 

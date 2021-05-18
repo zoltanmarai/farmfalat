@@ -2,7 +2,7 @@ import {Product} from "./product";
 
 
 export interface Order {
-  ID?: number;
+  id?: number;
   orderTime?: string;
   firstName: string;
   lastName: string;

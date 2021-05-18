@@ -19,7 +19,7 @@ import { RegistrationComponent } from './components/registration/registration.co
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { ProductMaintenanceComponent } from './components/product-maintenance/product-maintenance.component';
-import {HttpClientModule} from "@angular/common/http";
+import { HttpClientModule} from "@angular/common/http";
 import { CartComponent } from './components/cart/cart.component';
 import { ProductRowComponent } from './components/product-row/product-row.component';
 import { CartPageComponent } from './components/cart-page/cart-page.component';
@@ -38,6 +38,12 @@ import { ProductCategoryNewComponent } from './components/product-category-new/p
 import { ProductCategoryTableRowComponent } from './components/product-category-table-row/product-category-table-row.component';
 import { PackagesCardComponent } from './components/packages-card/packages-card.component';
 import { OrdersTablerowComponent } from './components/orders-tablerow/orders-tablerow.component';
+import { DefaultModalComponent } from './components/default-modal/default-modal.component';
+import { PartnerMaintenanceComponent } from './components/partner-maintenance/partner-maintenance.component';
+import { PartnerTablerowComponent } from './components/partner-tablerow/partner-tablerow.component';
+import { NewPartnerComponent } from './components/new-partner/new-partner.component';
+import { PartnerCardComponent } from './components/partner-card/partner-card.component';
+
 
 @NgModule({
   declarations: [
@@ -73,7 +79,12 @@ import { OrdersTablerowComponent } from './components/orders-tablerow/orders-tab
     ProductCategoryNewComponent,
     ProductCategoryTableRowComponent,
     PackagesCardComponent,
-    OrdersTablerowComponent
+    OrdersTablerowComponent,
+    DefaultModalComponent,
+    PartnerMaintenanceComponent,
+    PartnerTablerowComponent,
+    NewPartnerComponent,
+    PartnerCardComponent
   ],
     imports: [
         BrowserModule,

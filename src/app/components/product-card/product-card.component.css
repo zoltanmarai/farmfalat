@@ -35,4 +35,18 @@ input{
   font-size: 20px;
 
 }
+h6 {
+  display: table;
+  background-color: red;
+  border: solid #dd4b39;
+  transform: rotate(-45deg);
+  color: white;
+  position:relative;
+  top: -15px;
+  right: -5px;
+}
+#default {
+  visibility: hidden;
+}
+
 

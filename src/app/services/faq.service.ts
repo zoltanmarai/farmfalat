@@ -4,8 +4,6 @@ import {Observable, Subject} from "rxjs";
 import {Faq} from "../interfaces/faq";
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
-import {Product} from "../interfaces/product";
-import {ProductResponse} from "../interfaces/product-response";
 import {map} from "rxjs/operators";
 import {FaqResponse} from "../interfaces/faq-response";
 
@@ -26,5 +24,12 @@ export class FaqService {
     return this.http.get<FaqResponse>(this.SERVER_URL + '/faq/get', {withCredentials: true})
       .pipe(map(resp => resp.list));
   }
-
+  getAboutUs(): Observable<any> {
+    return this.http.get<any>(this.SERVER_URL + '/aboutUs', {withCredentials: true})
+      .pipe(map(resp => resp));
+  }
+  getASZF(): Observable<any> {
+    return this.http.get<any>(this.SERVER_URL + '/ASZF', {withCredentials: true})
+      .pipe(map(resp => resp));
+  }
 }

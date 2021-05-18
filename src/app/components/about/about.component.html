@@ -1,6 +1,8 @@
 <app-header></app-header>
 <main>
   <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
     <h4>Gyakran feltett kérdések</h4>
     <ngb-accordion id="accordion1"  [closeOthers]="true">
       <ngb-panel  *ngFor=" let f of faqArr">
@@ -12,7 +14,12 @@
         </ng-template>
       </ngb-panel>
     </ngb-accordion>
-
+    </div>
+    <div class="col-lg-6">
+      <h4>{{aboutUs.title}}</h4>
+      <p>{{aboutUs.subject}}</p>
+    </div>
+    </div>
   </div>
 </main>
 <app-footer></app-footer>

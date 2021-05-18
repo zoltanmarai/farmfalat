@@ -11,7 +11,7 @@ export class OrdersTablerowComponent implements OnInit {
   order: Order;
   constructor() {
     this.order = {
-      ID: 0,
+      id: 0,
       orderTime: '',
       firstName: '',
       lastName: '',

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Product} from "../../interfaces/product";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ProductService} from "../../services/product.service";
@@ -11,8 +11,6 @@ import {Subscription} from "rxjs";
 })
 export class ProductMaintenanceComponent implements OnInit {
   products: Product[];
-  @Input()
-  pr: Product;
   refreshSubsrciption: Subscription | undefined;
 
 
@@ -20,20 +18,6 @@ export class ProductMaintenanceComponent implements OnInit {
                private router: Router,
                private productService: ProductService) {
     this.products = [];
-    this.pr = { id: 0,
-      imageId: 0,
-      name: '',
-      description: '',
-      price: 0,
-      quantity: 0,
-      unit: '',
-      locale: '',
-      categoryID: 0,
-      inPromotion: false,
-      outOfStock: false,
-      outOfSeason:  false,
-      subTotal: 0
-    };
 
   }
 
@@ -41,7 +25,6 @@ export class ProductMaintenanceComponent implements OnInit {
     this.productService.getProducts().subscribe(
       pr => {
         this.products = pr;
-        console.log(this.products);
       });
     this.refreshSubsrciption = this.productService.refreshObservable.subscribe(productList =>{
       this.products = productList;

@@ -10,7 +10,7 @@
     <div class="alert alert-danger" *ngIf="showError == true">
       Sajnos, nincs ilyen termékünk.
     </div>
-    <div class="row" *ngIf="products.length !== 0" >
+    <div class="row" *ngIf="products.length !== 0 && showError == false" >
       <div class="col-md-6 col-lg-4" *ngFor="let pr of products" >
         <app-product-card [pr]='pr' ></app-product-card>
       </div>
