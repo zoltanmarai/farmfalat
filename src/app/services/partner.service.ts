@@ -32,4 +32,8 @@ export class PartnerService {
   deletePartner(p: Partner): Observable<boolean>{
     return this.http.delete<boolean>(this.SERVER_URL+'/partners/remove/' + p.id,{withCredentials: true});
   }
+  getUs(): Observable<Partner[]> {
+    return this.http.get<PartnerResponse>(this.SERVER_URL + '/partners/getUs', {withCredentials: true})
+      .pipe(map(resp => resp.list));
+  }
 }

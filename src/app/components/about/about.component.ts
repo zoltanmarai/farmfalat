@@ -3,6 +3,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {FaqService} from "../../services/faq.service";
 import {Faq} from "../../interfaces/faq";
 import {Aboutus} from "../../interfaces/aboutus";
+import {PartnerService} from "../../services/partner.service";
+import {Partner} from "../../interfaces/partner";
 
 
 @Component({
@@ -14,9 +16,13 @@ export class AboutComponent implements OnInit {
   faq: Faq;
   faqArr: Faq[];
   aboutUs: Aboutus;
+  partners: Partner[];
+
   constructor(private route: ActivatedRoute,
               private router: Router,
-              private faqService: FaqService) {
+              private faqService: FaqService,
+              private partnerService: PartnerService) {
+    this.partners = [];
     this.faq = {
       question : '', answer: ''
     };
@@ -33,6 +39,9 @@ export class AboutComponent implements OnInit {
     });
     this.faqService.getAboutUs().subscribe( resp => {
       this.aboutUs = resp;
+    });
+    this.partnerService.getUs().subscribe( r => {
+      this.partners = r;
     });
   }
 

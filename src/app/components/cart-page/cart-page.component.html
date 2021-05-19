@@ -229,7 +229,7 @@
   </div>
   <div  style="text-align: right">
     <button type="button" class="btn btn-outline-dark" routerLink="/main">Vissza</button>
-    <button type="submit" class="btn btn-outline-success " (click)="submit()"
+    <button type="submit" class="btn btn-outline-success ml-1 " (click)="submit()"
             [disabled]="((this.i === 2)|| (this.sumPrice === 0) || ((this.firstName == ''
       || this.firstName == null) && this.registrationForm.invalid) || deliveryForm.invalid)"
     >Megrendelés</button>

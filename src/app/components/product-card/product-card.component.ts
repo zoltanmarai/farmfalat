@@ -13,6 +13,8 @@ import {CartComponent} from "../cart/cart.component";
 export class ProductCardComponent implements OnInit {
   @Input()
   pr: Product;
+  retrievedImage: any;
+  base64Data: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -20,6 +22,7 @@ export class ProductCardComponent implements OnInit {
     private cartService: CartService,
     private modalService: NgbModal
   ) {
+
     this.pr = { id: 0,
       imageId: 0,
       name: '',
@@ -32,14 +35,29 @@ export class ProductCardComponent implements OnInit {
       inPromotion: false,
       outOfStock: false,
       outOfSeason:  false,
-      subTotal: 0
+      subTotal: 0,
+      // @ts-ignore
+      imageList: {name: '',
+        type: '',
+        description: '',
+        tooltip: '',
+        productID: 0,
+        byteFlow: '',
+        id: 0,
+        active: false
+      }
     };
   }
 
   ngOnInit(): void {
-   this.pr.quantity = 0;
+    this.pr.quantity = 0;
+    // @ts-ignore
+    if (this.pr.imageList.length > 0) {
+      // @ts-ignore
+      this.base64Data = this.pr.imageList[0].byteFlow;
+      this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
+    }
   }
-
   addToCart(pr:Product) {
 
 

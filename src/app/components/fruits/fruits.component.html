@@ -1,13 +1,16 @@
 <app-header></app-header>
 <main>
   <div class="container">
-    <div class="alert alert-warning" *ngIf="products.length == 0">
+    <div class="alert alert-warning" *ngIf="products.length == 0 && showError == false">
       <div class="d-flex align-items-center">
-        <strong>Loading...</strong>
+        <strong>Kérlek, várj egy kicsit...</strong>
         <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
       </div>
     </div>
-  <div class="row" *ngIf="products.length !== 0" >
+    <div *ngIf="showError == true"  class="alert alert-danger">
+      Sajnos ebben a kategóriában nincs elérhető termékünk
+    </div>
+  <div class="row" *ngIf="products.length !== 0 && showError == false" >
     <div class="col-md-6 col-lg-4" *ngFor="let pr of products" >
       <app-product-card [pr]='pr' ></app-product-card>
     </div>

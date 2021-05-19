@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, Output} from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
 import {Product} from "../../interfaces/product";
 import {ProductService} from "../../services/product.service";
 import {ActivatedRoute} from "@angular/router";
@@ -27,6 +27,7 @@ export class EggComponent implements OnInit {
     this.route.params.subscribe(s => {
       console.log(s);
       this.productName = s.productName;
+      this.products = [];
       this.showError = false;
       this.productService.productSearchByName(this.productName).subscribe(
         pr => {

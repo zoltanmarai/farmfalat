@@ -91,7 +91,7 @@ export class CartPageComponent implements OnInit {
       month: '',
       dayOfTheMonth: 0,
       dayOfWeek: '',
-      listOfGaps: {
+      listOfGaps : {
         deliveryGapsID: 0,
         gapStartsAt: 0,
         counter: 0,

@@ -1,3 +1,5 @@
+import {Picture} from "./picture";
+
 export interface Product {
   id?: number;
   imageId?: number;
@@ -12,4 +14,5 @@ export interface Product {
   outOfStock: boolean;
   outOfSeason: boolean;
   subTotal?: number;
+  imageList?: Picture[];
 }

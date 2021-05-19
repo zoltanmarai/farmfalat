@@ -41,13 +41,17 @@ export class FruitsComponent implements OnInit {
      // @ts-ignore
     this.route.queryParams.subscribe(r =>  {console.log (r)});
     this.route.params.subscribe(s => {
-      console.log(s);
       this.id = s.id;
+      this.products = [];
+      this.showError =false;
       this.productService.getProductByCategory(this.id).subscribe(
         pr => {
           this.products = pr;
           console.log(this.products);
-        });
+        },
+        error => {
+          this.showError = true;
+    });
     });
     }
 

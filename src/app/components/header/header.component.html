@@ -72,9 +72,10 @@
         <div ngbDropdownMenu aria-labelledby="navbarDropdown3" class="dropdown-menu">
           <a ngbDropdownItem [routerLink]="['/fruits/1']" (click)="$event.preventDefault()">Gyümölcs</a>
           <a ngbDropdownItem [routerLink]="['/fruits/2']" (click)="$event.preventDefault()">Zöldség</a>
-          <a ngbDropdownItem [routerLink]="['/fruits/3']" (click)="$event.preventDefault()">Tojás</a>
-          <a ngbDropdownItem [routerLink]="['/fruits/4']" (click)="$event.preventDefault()">Tea</a>
-          <a ngbDropdownItem [routerLink]="['/fruits/5']" (click)="$event.preventDefault()">Lekvár, Szörp</a>
+          <a ngbDropdownItem [routerLink]="['/fruits/3']" (click)="$event.preventDefault()">Dió, Mogyoró,Olajos magvak</a>
+          <a ngbDropdownItem [routerLink]="['/fruits/4']" (click)="$event.preventDefault()">Tea, Méz, Lekvár, Szörp</a>
+          <a ngbDropdownItem [routerLink]="['/fruits/5']" (click)="$event.preventDefault()">Savanyúság</a>
+          <a ngbDropdownItem [routerLink]="['/fruits/7']" (click)="$event.preventDefault()">Exkluzív termékek</a>
         </div>
       </li>
       <li class="nav-item">
@@ -86,7 +87,7 @@
 
 
       <div class="d-inline-block my-2 my-lg-0">
-        <input  type="text" class="form-control mr-sm-2" id="formControl-productName" placeholder="Termék keresés" aria-label="Search"
+        <input  type="text" class="form-control form-control-sm" id="formControl-productName" placeholder="Termék keresés" aria-label="Search"
         [(ngModel)]="productName" [ngClass]="{'is-invalid': !prNameValid}">
         <div class="invalid-feedback">Legalább 3 betűt írj be!</div>
       </div>
