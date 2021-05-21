@@ -5,9 +5,6 @@
     <form (submit)="submit()" [formGroup]="registrationForm">
 
       <div class="" id="body">
-        <!--div class="alert alert-danger" *ngIf="showRegError">
-          < {{confirm.message}}>
-        </div-->
         <div class="row">
         <div class="col-lg-6">
 
@@ -19,7 +16,7 @@
                      formControlName="lastName"
                      [ngClass]="{'is-invalid': registrationForm.controls.lastName.invalid && registrationForm.controls.lastName.touched}">
               <div class="invalid-feedback" *ngIf="registrationForm.controls.lastName.errors?.required">
-                You must give your last name!
+                Add meg a vezetékneved!
               </div>
             </div>
           </div>
@@ -32,7 +29,7 @@
                        formControlName="firstName"
                        [ngClass]="{'is-invalid': registrationForm.controls.firstName.invalid && registrationForm.controls.firstName.touched}">
                 <div class="invalid-feedback" *ngIf="registrationForm.controls.firstName.errors?.required">
-                  You must give your first name!
+                  Add meg a keresztneved!
                 </div>
               </div>
             </div>
@@ -45,7 +42,7 @@
                      aria-describedby="username" formControlName="username"
                      [ngClass]="{'is-invalid': registrationForm.controls.username.invalid && registrationForm.controls.username.touched}">
               <div class="invalid-feedback" *ngIf="registrationForm.controls.username.errors?.required">
-                You must give an e-mail address!>
+                Add meg az email címedet!
               </div>
             </div>
           </div>
@@ -58,10 +55,10 @@
                      formControlName="password"
                      [ngClass]="{'is-invalid': registrationForm.controls.password.invalid && registrationForm.controls.password.touched}">
               <div class="invalid-feedback" *ngIf="registrationForm.controls.password.errors?.required">
-                You must give a password!
+                Írj be egy jelszót!
               </div>
               <div class="invalid-feedback" *ngIf="registrationForm.controls.password.errors?.min">
-                Your password must be at least 6 character long!
+                Legalább 6 karakter hosszú legyen!
               </div>
             </div>
           </div>
@@ -74,10 +71,10 @@
                        formControlName="password2"
                        [ngClass]="{'is-invalid': registrationForm.controls.password2.invalid && registrationForm.controls.password2.touched}">
                 <div class="invalid-feedback" *ngIf="registrationForm.controls.password2.errors?.required">
-                  You must give a password!
+                  Ugyanazt a jelszót add meg!
                 </div>
                 <div class="invalid-feedback" *ngIf="registrationForm.controls.password2.errors?.min">
-                  Your password must be at least 6 character long!
+                  Legalább 6 karakter hosszú legyen!
                 </div>
               </div>
             </div>
@@ -105,7 +102,7 @@
                        formControlName="city_home"
                        [ngClass]="{'is-invalid': registrationForm.controls.city_home.invalid && registrationForm.controls.city_home.touched}">
                 <div class="invalid-feedback" *ngIf="registrationForm.controls.city_home.errors?.required">
-                  You must give your city!
+                  Add meg a város nevet!
                 </div>
               </div>
             </div>
@@ -118,7 +115,7 @@
                      formControlName="simpleAddress_home"
                      [ngClass]="{'is-invalid': registrationForm.controls.simpleAddress_home.invalid && registrationForm.controls.simpleAddress_home.touched}">
               <div class="invalid-feedback" *ngIf="registrationForm.controls.simpleAddress_home.errors?.required">
-                You must give your address!
+                Add meg az utcát és házszámot!
               </div>
             </div>
           </div>
@@ -131,7 +128,7 @@
                      formControlName="phoneNumber"
                      [ngClass]="{'is-invalid': registrationForm.controls.phoneNumber.invalid && registrationForm.controls.phoneNumber.touched}">
               <div class="invalid-feedback" *ngIf="registrationForm.controls.phoneNumber.errors?.required">
-                You must give your phone number!
+                Add meg telefonszámod!
               </div>
             </div>
           </div>
@@ -186,7 +183,7 @@
                            formControlName="city_delivery"
                            [ngClass]="{'is-invalid': registrationForm.controls.city_delivery.invalid && registrationForm.controls.city_delivery.touched}">
                     <div class="invalid-feedback" *ngIf="registrationForm.controls.city_delivery.errors?.required">
-                      You must give your city!
+                      Add meg a város nevet!
                     </div>
                   </div>
                 </div>
@@ -199,7 +196,7 @@
                            formControlName="simpleAddress_delivery"
                            [ngClass]="{'is-invalid': registrationForm.controls.simpleAddress_delivery.invalid && registrationForm.controls.simpleAddress_delivery.touched}">
                     <div class="invalid-feedback" *ngIf="registrationForm.controls.simpleAddress_delivery.errors?.required">
-                      You must give your address!
+                      Add meg az utcát és házszámot!
                     </div>
                   </div>
                 </div>
@@ -228,7 +225,7 @@
                            formControlName="city_billing"
                            [ngClass]="{'is-invalid': registrationForm.controls.city_billing.invalid && registrationForm.controls.city_billing.touched}">
                     <div class="invalid-feedback" *ngIf="registrationForm.controls.city_billing.errors?.required">
-                      You must give your city!
+                      Add meg a város nevet!
                     </div>
                   </div>
                 </div>
@@ -241,7 +238,7 @@
                            formControlName="simpleAddress_billing"
                            [ngClass]="{'is-invalid': registrationForm.controls.simpleAddress_billing.invalid && registrationForm.controls.simpleAddress_billing.touched}">
                     <div class="invalid-feedback" *ngIf="registrationForm.controls.simpleAddress_billing.errors?.required">
-                      You must give your address!
+                      Add meg az utcát és házszámot!
                     </div>
                   </div>
                 </div>

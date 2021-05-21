@@ -3,18 +3,24 @@
   margin-top: 40px;
 }
 
+
 .container{
   background-color: rgba(255,255,255,0.7);
   padding-top: 20px;
   padding-bottom: 20px;
-
 }
-
-
+.container-fluid{
+  margin-top: 40px;
+  padding-top: 10px;
+  background-color: rgba(255,255,255,1);
+}
+h6{
+  background-color: rgba(255,255,255,1);
+}
 
 .icon-bar {
   position: fixed;
-  top: 75%;
+  top: 50%;
 
 }
 
@@ -59,4 +65,9 @@
 .content {
   margin-left: 75px;
   font-size: 30px;
+}
+.carousel-item.active,
+.carousel-item-next,
+.carousel-item-prev{
+  display:block;
 }

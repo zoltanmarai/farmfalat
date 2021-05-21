@@ -19,7 +19,7 @@
                          formControlName="lastName" [value]="user.lastName"
                          [ngClass]="{'is-invalid': profileForm.controls.lastName.invalid}">
                   <div class="invalid-feedback" *ngIf="profileForm.controls.lastName.errors?.required">
-                    You must give your last name!
+                    Add meg a vezetékneved!
                   </div>
                 </div>
               </div>
@@ -32,7 +32,7 @@
                          formControlName="firstName" [value]="user.firstName"
                          [ngClass]="{'is-invalid': profileForm.controls.firstName.invalid }">
                   <div class="invalid-feedback" *ngIf="profileForm.controls.firstName.errors?.required">
-                    You must give your first name!
+                    Add meg a keresztneved!
                   </div>
                 </div>
               </div>
@@ -45,7 +45,7 @@
                          aria-describedby="username" formControlName="username" [value]="user.username"
                          [ngClass]="{'is-invalid': profileForm.controls.username.invalid }">
                   <div class="invalid-feedback" *ngIf="profileForm.controls.username.errors?.required">
-                    You must give an e-mail address!>
+                    Add meg az email címed!
                   </div>
                 </div>
               </div>
@@ -73,7 +73,7 @@
                          formControlName="city_home" [value]="user.city_home"
                          [ngClass]="{'is-invalid': profileForm.controls.city_home.invalid }">
                   <div class="invalid-feedback" *ngIf="profileForm.controls.city_home.errors?.required">
-                    You must give your city!
+                    Add meg a város nevét!
                   </div>
                 </div>
               </div>
@@ -86,7 +86,7 @@
                          formControlName="simpleAddress_home" [value]="user.simpleAddress_home"
                          [ngClass]="{'is-invalid': profileForm.controls.simpleAddress_home.invalid }">
                   <div class="invalid-feedback" *ngIf="profileForm.controls.simpleAddress_home.errors?.required">
-                    You must give your address!
+                    Add meg az utcát és a házszámot!
                   </div>
                 </div>
               </div>
@@ -99,7 +99,7 @@
                          formControlName="phoneNumber" [value]="user.phoneNumber"
                          [ngClass]="{'is-invalid': profileForm.controls.phoneNumber.invalid }">
                   <div class="invalid-feedback" *ngIf="profileForm.controls.phoneNumber.errors?.required">
-                    You must give your phone number!
+                    Add meg a telefonszámod!
                   </div>
                 </div>
               </div>
@@ -131,7 +131,7 @@
                            formControlName="city_delivery" [value]="user.city_delivery"
                            [ngClass]="{'is-invalid': profileForm.controls.city_delivery.invalid }">
                     <div class="invalid-feedback" *ngIf="profileForm.controls.city_delivery.errors?.required">
-                      You must give your city!
+                      Add meg a város nevét!
                     </div>
                   </div>
                 </div>
@@ -144,7 +144,7 @@
                            formControlName="simpleAddress_delivery" [value]="user.simpleAddress_delivery"
                            [ngClass]="{'is-invalid': profileForm.controls.simpleAddress_delivery.invalid}">
                     <div class="invalid-feedback" *ngIf="profileForm.controls.simpleAddress_delivery.errors?.required">
-                      You must give your address!
+                      Add meg az utcát és a házszámot!
                     </div>
                   </div>
                 </div>
@@ -173,7 +173,7 @@
                            formControlName="city_billing" [value]="user.city_billing"
                            [ngClass]="{'is-invalid': profileForm.controls.city_billing.invalid}">
                     <div class="invalid-feedback" *ngIf="profileForm.controls.city_billing.errors?.required">
-                      You must give your city!
+                      Add meg a város nevét!
                     </div>
                   </div>
                 </div>
@@ -186,7 +186,7 @@
                            formControlName="simpleAddress_billing" [value]="user.simpleAddress_billing"
                            [ngClass]="{'is-invalid': profileForm.controls.simpleAddress_billing.invalid }">
                     <div class="invalid-feedback" *ngIf="profileForm.controls.simpleAddress_billing.errors?.required">
-                      You must give your address!
+                      Add meg az utcát és a házszámot!
                     </div>
                   </div>
                 </div>
