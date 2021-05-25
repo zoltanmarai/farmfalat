@@ -26,7 +26,8 @@ export class UserMaintenanceComponent implements OnInit {
       city_home: '',
       postCode_home: 0,
       phoneNumber: '',
-      active: false
+      active: false,
+      wantEmailNews: false
     };
     this.usersArr = [];
   }

@@ -14,7 +14,7 @@ img {
 
 }
 button{
-  margin: 20px;
+  margin: 10px;
 
 }
 .card-body{
@@ -33,7 +33,7 @@ input{
   border-bottom-color: black;
   border-bottom-style: solid;
   font-size: 20px;
-
+  text-align: center;
 }
 h6 {
   display: table;
@@ -47,6 +47,11 @@ h6 {
 }
 #default {
   visibility: hidden;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 

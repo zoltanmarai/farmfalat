@@ -21,7 +21,8 @@ export class UserTablerowComponent implements OnInit {
       city_home: '',
       postCode_home: 0,
       phoneNumber: '',
-      active: false
+      active: false,
+      wantEmailNews: false
     };
   }
 

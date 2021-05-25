@@ -46,13 +46,14 @@ export class RegistrationComponent implements OnInit {
       city_home: '',
       postCode_home: 0,
       phoneNumber: '',
-      active: false
+      active: false,
+      wantEmailNews: false
     };
     // @ts-ignore
     this.registrationForm = {firstName: '', lastName: '', username: '',
       password: '',password2:'', simpleAddress_home: '', city_home: '', postCode_home: 1000, phoneNumber: '',
       address_delivery: null, city_delivery: null, postCode_delivery: 0,
-      address_billing: null, city_billing: null, postCode_billing: 0
+      address_billing: null, city_billing: null, postCode_billing: 0, wantEmailNews: false
     };
     this.showRegError = false;
     // @ts-ignore
@@ -108,7 +109,8 @@ export class RegistrationComponent implements OnInit {
       city_billing: new FormControl(this.user.city_billing),
       postCode_delivery: new FormControl(this.user.postCode_delivery),
       postCode_billing: new FormControl(this.user.postCode_billing),
-      isMoreAddress: new FormControl(this.isMoreAddress, Validators.required)
+      isMoreAddress: new FormControl(this.isMoreAddress, Validators.required),
+      wantEmailNews: new FormControl(this.user.wantEmailNews, Validators.required)
     });
   }
   submit(): void {

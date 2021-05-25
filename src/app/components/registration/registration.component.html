@@ -147,7 +147,21 @@
               </div>
             </div>
           </div>
+          <div class="form-group">
+            <div class="mb-6 row">
+              <label class="col-sm-6 col-form-label">Feliratkozol a hírlevelünkre?:</label>
+              <div class="col-sm-6">
+                <div class="btn btn-toggle">
+                  <label class="btn-primary" ngbButtonLabel>
+                    <input type="checkbox" formControlName="wantEmailNems" ngbButton
+                           [value]="true"> Igen, szeretnék
+                  </label>
 
+                </div>
+
+              </div>
+            </div>
+          </div>
         <div class="row" id="row1">
           <p>Sikeres regisztráció esetén, emailt küldünk! </p>
           <div  class="alert alert-success" *ngIf="showRegSuccess" >

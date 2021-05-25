@@ -16,10 +16,10 @@ button{
   text-align: center;
 }
 label{
-  width: 60px;
+  width: 50px;
 }
 input{
-  width: 50px;
+  width: 30px;
   background-color: rgba(229, 228, 255, 0.1);
   border-top-width: 0px;
   border-left-width: 0px;
@@ -28,6 +28,16 @@ input{
   border-bottom-color: black;
   border-bottom-style: solid;
   font-size: 20px;
-
+  text-align: center;
 }
-
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.btn{
+  margin-right: 0;
+  margin-left: 0;
+  padding-left: 0;
+  padding-right: 0;
+}

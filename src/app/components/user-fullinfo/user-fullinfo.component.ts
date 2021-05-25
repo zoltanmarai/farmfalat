@@ -23,7 +23,8 @@ export class UserFullinfoComponent implements OnInit {
       city_home: '',
       postCode_home: 0,
       phoneNumber: '',
-      active: false
+      active: false,
+      wantEmailNews: false
     };
     this.id = 0;
   }

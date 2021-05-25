@@ -29,7 +29,7 @@ export class PackagesCardComponent implements OnInit {
       name: '',
       description: '',
       price: 0,
-      quantity: 0,
+      quantity: 1,
       unit: '',
       locale: '',
       categoryID: 0,
@@ -62,15 +62,25 @@ export class PackagesCardComponent implements OnInit {
       // @ts-ignore
       subTotal: this.pr.price * this.pr.quantity
     });
-    this.modalService.open(CartComponent);
+   // this.modalService.open(CartComponent);
   }
   getProductByID(id: number): void {
     this.productService.getProductById(id).subscribe(
       p => {
         this.pr = p;
-        this.pr.quantity = 0;
+        this.pr.quantity = 1;
       });
   }
-
+  addQuantity(): void{
+    // @ts-ignore
+    this.pr.quantity = this.pr.quantity + 1;
+  }
+  minusQuantity(): void {
+    // @ts-ignore
+    if (this.pr.quantity > 1) {
+      // @ts-ignore
+      this.pr.quantity = this.pr.quantity - 1;
+    }
+  }
 }
 

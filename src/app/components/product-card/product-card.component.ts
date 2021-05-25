@@ -50,7 +50,7 @@ export class ProductCardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.pr.quantity = 0;
+    this.pr.quantity = 1;
     // @ts-ignore
     if (this.pr.imageList.length > 0) {
       // @ts-ignore
@@ -59,7 +59,7 @@ export class ProductCardComponent implements OnInit {
     }
   }
   addToCart(pr:Product) {
-
+    this.pr = pr;
 
     // @ts-ignore
     this.cartService.addToCart({
@@ -74,7 +74,18 @@ export class ProductCardComponent implements OnInit {
       // @ts-ignore
       subTotal: this.pr.price * this.pr.quantity
     });
-    this.modalService.open(CartComponent);
-  }
 
+   // this.modalService.open(CartComponent);
+  }
+  addQuantity(): void{
+    // @ts-ignore
+    this.pr.quantity = this.pr.quantity + 1;
+  }
+  minusQuantity(): void{
+    // @ts-ignore
+    if(this.pr.quantity > 1) {
+      // @ts-ignore
+      this.pr.quantity = this.pr.quantity - 1;
+    }
+  }
 }

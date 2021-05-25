@@ -4,15 +4,21 @@
     <p>
       {{pr.price}}  Ft</p>
     <div style="display: inline-block ">
-      <span class="minus">Mennyiség: </span>
+      <button class="btn btn-sm" (click)="minusQuantity()"><i class="fa fa-minus-circle"></i></button>
       <label>
         <input type="number"  name="mennyiseg" placeholder="0" min="1" step="1"
                [(ngModel)]="pr.quantity">
       </label>
-      <span>{{pr.unit}}</span>
+      <button class="btn btn-sm" (click)="addQuantity()"><i class="fa fa-plus-circle"></i></button>
     </div>
     <div>
-      <button class="btn btn-sm btn-outline-dark" [disabled]="pr.quantity == 0 "  (click)="addToCart(pr)">Kosárba</button>
+      <button class="btn btn-outline-dark btn-sm"  [disabled]="pr.quantity == 0 "
+              ngbPopover="  Megtekintheted a kosárban.
+                              Ha 10.000 Ft felett vásárolsz INGYEN kiszállítjuk."
+              popoverTitle="{{pr.quantity}} {{pr.unit}}  {{pr.name}} nevű terméket beleraktam a kosaradba!"
+              [openDelay]="300" [closeDelay]="2000" triggers="click:mouseleave"
+              (click)="addToCart(pr)">Kosárba</button>
+
     </div>
   </div>
 </div>

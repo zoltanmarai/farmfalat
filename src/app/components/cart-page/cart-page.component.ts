@@ -67,7 +67,8 @@ export class CartPageComponent implements OnInit {
       city_home: '',
       postCode_home: 0,
       phoneNumber: '',
-      active: false
+      active: false,
+      wantEmailNews: false
     };
     this.reactiveForm.controls['reactiveRadio'].valueChanges.subscribe((state: number) => {
       if(state === 0){

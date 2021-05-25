@@ -17,4 +17,5 @@ export interface User {
   city_billing: string | null;
   simpleAddress_billing: string | null;
   active: boolean;
+  wantEmailNews: boolean;
 }

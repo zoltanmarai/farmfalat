@@ -70,11 +70,11 @@
         <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown3" role="button" >
           Termékek
         </a>
-        <div ngbDropdownMenu aria-labelledby="navbarDropdown3" class="dropdown-menu">
+        <div ngbDropdownMenu aria-labelledby="navbarDropdown3" class="dropdown-menu" id="dropdown-menu">
           <a ngbDropdownItem [routerLink]="['/fruits/1']" (click)="isMenuCollapsed = true">Gyümölcs</a>
           <a ngbDropdownItem [routerLink]="['/fruits/2']" (click)="isMenuCollapsed = true">Zöldség</a>
-          <a ngbDropdownItem [routerLink]="['/fruits/3']" (click)="isMenuCollapsed = true">Dió, Mogyoró,Olajos magvak</a>
-          <a ngbDropdownItem [routerLink]="['/fruits/4']" (click)="isMenuCollapsed = true">Tea, Méz, Lekvár, Szörp</a>
+          <a ngbDropdownItem [routerLink]="['/fruits/3']" (click)="isMenuCollapsed = true">Dió,Olajos magvak</a>
+          <a ngbDropdownItem [routerLink]="['/fruits/4']" (click)="isMenuCollapsed = true">Tea,Méz,Lekvár,Szörp</a>
           <a ngbDropdownItem [routerLink]="['/fruits/5']" (click)="isMenuCollapsed = true">Savanyúság</a>
           <a ngbDropdownItem [routerLink]="['/fruits/7']" (click)="isMenuCollapsed = true">Exkluzív termékek</a>
         </div>
@@ -86,19 +86,18 @@
         <a class="nav-link" [routerLink]="['/about']" (click)="isMenuCollapsed = true">Rólunk/GYIK</a>
       </li>
     </ul>
+
       <div *ngIf=" firstName !== '' && firstName !== null">
         <h6> Helló, {{firstName}}!</h6>
       </div>
-
-
-
     </div>
-      <div class="d-inline-block my-2 my-lg-0">
+
+      <div class="d-inline-block my-2 my-lg-0" *ngIf="userRole != 'admin'">
         <input  type="text" class="form-control form-control-sm" id="formControl-productName" placeholder="Termék keresés" aria-label="Search"
                 [(ngModel)]="productName" [ngClass]="{'is-invalid': !prNameValid}">
         <div class="invalid-feedback">Legalább 3 betűt írj be!</div>
       </div>
-      <div>
+      <div *ngIf="userRole != 'admin'">
         <button class=" btn btn-sm btn-outline-success" type="submit" (click)="productSearch(); isMenuCollapsed = true">Keresés</button>
       </div>
 

@@ -41,6 +41,9 @@ export class HeaderComponent implements AfterViewInit , OnInit, OnDestroy{
 
   constructor(private modalService: NgbModal, private userService: UserService,
               private router: Router, private cartService: CartService) {
+    this.obs.subscribe(value => {
+      this.numberOfItems = value;
+    });
     this.productsInCart = [];
     this.showLoginError = false;
     this.productName = '';
@@ -87,8 +90,12 @@ export class HeaderComponent implements AfterViewInit , OnInit, OnDestroy{
   }
 
   openModifyModal(): void {
-    const modalRef = this.modalService.open(CartComponent);
 
+    const modalRef = this.modalService.open(CartComponent);
+    this.obs.subscribe(value => {
+      console.log(value);
+      this.numberOfItems = value;
+    });
   }
 
   submit(): void {
