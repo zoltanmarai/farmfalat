@@ -29,6 +29,8 @@ import {PartnerMaintenanceComponent} from "./components/partner-maintenance/part
 import {PartnerTablerowComponent} from "./components/partner-tablerow/partner-tablerow.component";
 import {NewPartnerComponent} from "./components/new-partner/new-partner.component";
 import {PartnerCardComponent} from "./components/partner-card/partner-card.component";
+import {EmailNewsMaintenanceComponent} from "./components/email-news-maintenance/email-news-maintenance.component";
+import {EmailNewsTablerowComponent} from "./components/email-news-tablerow/email-news-tablerow.component";
 
 
 const routes: Routes = [
@@ -61,7 +63,9 @@ const routes: Routes = [
   {path: 'partner-maintenance', component: PartnerMaintenanceComponent},
   {path: 'partner-tablerow', component: PartnerTablerowComponent},
   {path: 'new-partner', component: NewPartnerComponent},
-  {path: 'partner-card', component: PartnerCardComponent}
+  {path: 'partner-card', component: PartnerCardComponent},
+  {path: 'email-news-maintenance', component: EmailNewsMaintenanceComponent},
+  {path: 'email-news-tablerow', component: EmailNewsTablerowComponent}
 ];
 
 

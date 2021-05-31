@@ -1,0 +1,45 @@
+<app-header></app-header>
+<main>
+  <div class="container">
+    <form (submit)="submit()" [formGroup]="emailNewsForm">
+      <div class="form-group">
+        <div class="mb-6 row">
+          <label for="news" class="col-sm-4 col-form-label">Hírlevél szövege:</label>
+          <div class="col-sm-8">
+            <textarea type="text" class="form-control form-control-sm" id="news"
+                   formControlName="news"
+                   [ngClass]="{'is-invalid': emailNewsForm.controls.news.invalid && emailNewsForm.controls.news.touched}"
+                      rows="3">
+            </textarea>
+            <div class="invalid-feedback" *ngIf="emailNewsForm.controls.news.errors?.required">
+              Írj valami vicceset!
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="emailNewsForm.invalid">Beküld
+      </button>
+    </form>
+  </div>
+  <div class="container-fluid">
+    <div class="row" id="row2">
+      <h3>Összes hírlevél feliratkozó táblázata</h3>
+    </div>
+    <table class="table table-striped table-bordered ">
+      <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Email cím</th>
+        <th scope="col">Név</th>
+        <th scope="col">Aktív</th>
+      </tr>
+      </thead>
+      <tbody id="tbody">
+      <tr app-email-news-tablerow *ngFor="let pr of emailPartners" [pr]='pr' ></tr>
+
+      </tbody>
+    </table>
+  </div>
+</main>
+<app-footer></app-footer>
+

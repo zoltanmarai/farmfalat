@@ -35,13 +35,8 @@
                 <input type="password" class="form-control" id="formControl-password" placeholder="Jelszó"
                        autocomplete="current-password" [(ngModel)]="login.password">
               </div>
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="dropdownCheck">
-                <label class="form-check-label" for="dropdownCheck">
-                  Jegyezd meg
-                </label>
-              </div>
-              <button type="submit" class="btn btn-outline-dark" (click)="submit(); isMenuCollapsed = true">Bejelentkezés</button>
+
+              <button type="submit" class="btn btn-outline-dark" (click)="submit(); isMenuCollapsed = userResponse.succesful">Bejelentkezés</button>
             </div>
             <div class="dropdown-divider"></div>
             <button  class="btn btn-outline-dark" ngbDropdownItem [routerLink]="['/registration']">
@@ -119,6 +114,9 @@
           <a class="nav-link" [routerLink]="['/partner-maintenance']" (click)="isMenuCollapsed = true">Partner szervíz</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/email-news-maintenance']" (click)="isMenuCollapsed = true">Hírlevél szervíz</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link"> <button  class="btn btn-outline-dark" (click)="logout()">
             Kijelentkezés</button></a>
         </li>
@@ -126,7 +124,7 @@
     </div>
 
 
-    <a *ngIf="userRole != 'admin'" class="button"  (click)="openModifyModal()">
+    <a *ngIf="userRole != 'admin'" class="button"  (click)="openModifyModal(); isMenuCollapsed = true">
 
       <div class="wrapper">
         <i class="material-icons">

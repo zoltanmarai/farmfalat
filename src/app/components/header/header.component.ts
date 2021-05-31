@@ -41,9 +41,11 @@ export class HeaderComponent implements AfterViewInit , OnInit, OnDestroy{
 
   constructor(private modalService: NgbModal, private userService: UserService,
               private router: Router, private cartService: CartService) {
-    this.obs.subscribe(value => {
-      this.numberOfItems = value;
-    });
+   // this.obs.subscribe(value => {
+    //  this.numberOfItems = value;
+   // });
+    this.numberOfItems = 0;
+    this.cartService.currentItemsLength.subscribe(length => this.numberOfItems = Number(length));
     this.productsInCart = [];
     this.showLoginError = false;
     this.productName = '';
@@ -69,7 +71,6 @@ export class HeaderComponent implements AfterViewInit , OnInit, OnDestroy{
         active: false
       }
     };
-    this.numberOfItems = 0;
     this.userRole = '';
     this.firstName = '';
     if (sessionStorage.length > 0) {
@@ -81,21 +82,25 @@ export class HeaderComponent implements AfterViewInit , OnInit, OnDestroy{
 
   ngOnInit(): void {
     this.productsInCart = this.cartService.items;
+    this.cartService.currentItemsLength.subscribe(length => this.numberOfItems = length);
 
-    this.obs.subscribe(value => {
-      console.log(value);
-      this.numberOfItems = value;
-    });
+   // this.obs.subscribe(value => {
+    //  console.log(value);
+    //  this.numberOfItems = value;
+   // });
 
   }
 
   openModifyModal(): void {
 
     const modalRef = this.modalService.open(CartComponent);
-    this.obs.subscribe(value => {
-      console.log(value);
-      this.numberOfItems = value;
-    });
+    this.cartService.currentItemsLength.subscribe(length => this.numberOfItems = length);
+
+    console.log(this.numberOfItems);
+   // this.obs.subscribe(value => {
+   //   console.log(value);
+   //   this.numberOfItems = value;
+   // });
   }
 
   submit(): void {
@@ -120,11 +125,15 @@ export class HeaderComponent implements AfterViewInit , OnInit, OnDestroy{
           this.showLoginError = true;
           this.login.username = '';
           this.login.password = '';
+          setTimeout(() => {
+            this.showLoginError = false;
+          },  3000);
         }
       },
       error => {
         this.showLoginError = true;
       });
+    this.userResponse.succesful = false;
   }
 
   productSearch(): void {
@@ -146,10 +155,10 @@ export class HeaderComponent implements AfterViewInit , OnInit, OnDestroy{
   }
 
   ngAfterViewInit() {
-    this.obs.subscribe( value =>
-    { console.log(value);
-      this.numberOfItems = value;
-    });
+   // this.obs.subscribe( value =>
+    //{ console.log(value);
+   //   this.numberOfItems = value;
+   // });
   }
   ngOnDestroy() {
   }

@@ -42,6 +42,7 @@ export class FruitsComponent implements OnInit {
     this.route.queryParams.subscribe(r =>  {console.log (r)});
     this.route.params.subscribe(s => {
       this.id = s.id;
+      console.log(this.id);
       this.products = [];
       this.showError =false;
       this.productService.getProductByCategory(this.id).subscribe(

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Product} from "../interfaces/product";
+import {BehaviorSubject} from "rxjs";
 
 
 @Injectable({
@@ -8,12 +9,14 @@ import {Product} from "../interfaces/product";
 export class CartService {
   items: Product[];
   totalPrice: number;
-  maxPrice;
+  maxPrice: number;
+  private itemsSource = new BehaviorSubject(this.itemsCounter());
+  currentItemsLength = this.itemsSource.asObservable();
 
   constructor() {
     this.items = [];
     this.totalPrice = 0;
-    this.maxPrice =0;
+    this.maxPrice = 0;
   }
   // @ts-ignore
   addToCart(product: Product) {
@@ -25,7 +28,18 @@ export class CartService {
     return this.items;
   }
   itemsCounter(){
-    return this.items.length;
+    let t : number;
+    t = 0;
+    try{
+    if(this.items.length != undefined){
+      t = this.items.length;
+    }
+    }
+    catch (e){
+      t = 0;
+    }
+    console.log('t értéke ' + t);
+    return t;
   }
 
   clearCart() {
@@ -57,5 +71,10 @@ export class CartService {
       this.maxPrice = this.totalPrice;
     }
     return this.maxPrice;
+  }
+  changeItemsLength(length: number) {
+    console.log('length' + length);
+
+    this.itemsSource.next(this.itemsCounter());
   }
 }

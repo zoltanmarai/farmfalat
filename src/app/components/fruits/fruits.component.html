@@ -7,6 +7,24 @@
         <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
       </div>
     </div>
+    <div *ngIf="id == 1">
+      <h3>Gyümölcsök:</h3>
+    </div>
+    <div *ngIf="id == 2">
+      <h3>Zöldségek:</h3>
+    </div>
+    <div *ngIf="id == 3">
+      <h3>Dió,Olajos magvak:</h3>
+    </div>
+    <div *ngIf="id == 4">
+      <h3>Tea,Méz,Lekvár,Szörp:</h3>
+    </div>
+    <div *ngIf="id == 5">
+      <h3>Savanyúság:</h3>
+    </div>
+    <div *ngIf="id == 7">
+      <h3>Exkluzív termékek:</h3>
+    </div>
     <div *ngIf="showError == true"  class="alert alert-danger">
       Sajnos ebben a kategóriában nincs elérhető termékünk
     </div>

@@ -6,7 +6,7 @@ import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
 import {map} from "rxjs/operators";
 import {PartnerResponse} from "../interfaces/partner-response";
-import {NewproductResponse} from "../interfaces/newproduct-response";
+
 
 @Injectable({
   providedIn: 'root'

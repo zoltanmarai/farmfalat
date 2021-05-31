@@ -13,9 +13,9 @@
     </div>
     <div>
       <button class="btn btn-outline-dark btn-sm"  [disabled]="pr.quantity == 0 "
-              ngbPopover="  Megtekintheted a kosárban.
+              ngbPopover=" Megtekintheted a kosárban, amiben {{numberOfItems}} termék van.
                               Ha 10.000 Ft felett vásárolsz INGYEN kiszállítjuk."
-              popoverTitle="{{pr.quantity}} {{pr.unit}}  {{pr.name}} nevű terméket beleraktam a kosaradba!"
+              popoverTitle="{{pr.quantity}} {{pr.unit}}  {{pr.name}} terméket beleraktam a kosaradba!"
               [openDelay]="300" [closeDelay]="2000" triggers="click:mouseleave"
               (click)="addToCart(pr)">Kosárba</button>
 

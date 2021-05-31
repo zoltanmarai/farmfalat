@@ -19,7 +19,7 @@ export class CartComponent implements OnInit {
 
   constructor(public activeModal: NgbActiveModal, public cartService: CartService) {
     this.productsInCart = [];
-    this.numberOfItems = 0;
+    this.numberOfItems = this.cartService.itemsCounter();
     this.sumPrice = 0;
     this.maxPrice = 0;
     this.deliveryFee = 0;
@@ -27,7 +27,7 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.productsInCart = this.cartService.items;
-    this.numberOfItems = this.productsInCart.length;
+    this.cartService.currentItemsLength.subscribe(length => this.numberOfItems = Number(length));
     this.change.emit(this.numberOfItems);
     this.sumPrice =  this.cartService.sumPrice();
     this.maxPrice = this.cartService.getSumPrice();
@@ -45,6 +45,7 @@ export class CartComponent implements OnInit {
         this.maxPrice = this.cartService.getSumPrice();
         this.deliveryFee = this.maxPrice-this.sumPrice;
       }
+        this.cartService.changeItemsLength(this.numberOfItems);
     }
   }
 

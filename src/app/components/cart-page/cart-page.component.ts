@@ -18,6 +18,7 @@ import {OrderResponce} from "../../interfaces/order-responce";
   styleUrls: ['./cart-page.component.css']
 })
 export class CartPageComponent implements OnInit {
+  numberOfItems: number;
   maxPrice: number;
   i: number;
   sumPrice: number;
@@ -132,8 +133,10 @@ export class CartPageComponent implements OnInit {
       ID: 0
     };
     this.showRespSuccess = false;
+    this.numberOfItems = this.cartService.itemsCounter();
   }
   ngOnInit(): void {
+    this.cartService.currentItemsLength.subscribe(length => this.numberOfItems = Number(length));
     this.getDeliveryDates();
     this.createDeliveryForm();
     this.productsInCart = this.cartService.items;
@@ -187,6 +190,7 @@ export class CartPageComponent implements OnInit {
         this.maxPrice = this.cartService.getSumPrice();
         this.order.deliveryFee = this.maxPrice-this.sumPrice;
       }
+      this.cartService.changeItemsLength(this.numberOfItems);
     }
   }
   submit(): void {

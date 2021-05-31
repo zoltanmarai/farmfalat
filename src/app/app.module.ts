@@ -43,6 +43,9 @@ import { PartnerMaintenanceComponent } from './components/partner-maintenance/pa
 import { PartnerTablerowComponent } from './components/partner-tablerow/partner-tablerow.component';
 import { NewPartnerComponent } from './components/new-partner/new-partner.component';
 import { PartnerCardComponent } from './components/partner-card/partner-card.component';
+import { EmailSignUpComponent } from './components/email-sign-up/email-sign-up.component';
+import { EmailNewsMaintenanceComponent } from './components/email-news-maintenance/email-news-maintenance.component';
+import { EmailNewsTablerowComponent } from './components/email-news-tablerow/email-news-tablerow.component';
 
 
 @NgModule({
@@ -84,7 +87,10 @@ import { PartnerCardComponent } from './components/partner-card/partner-card.com
     PartnerMaintenanceComponent,
     PartnerTablerowComponent,
     NewPartnerComponent,
-    PartnerCardComponent
+    PartnerCardComponent,
+    EmailSignUpComponent,
+    EmailNewsMaintenanceComponent,
+    EmailNewsTablerowComponent
   ],
     imports: [
         BrowserModule,

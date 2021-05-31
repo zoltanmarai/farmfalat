@@ -15,6 +15,7 @@ export class ProductCardComponent implements OnInit {
   pr: Product;
   retrievedImage: any;
   base64Data: any;
+  numberOfItems: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,6 +24,7 @@ export class ProductCardComponent implements OnInit {
     private modalService: NgbModal
   ) {
 
+    this.numberOfItems = this.cartService.itemsCounter();
     this.pr = { id: 0,
       imageId: 0,
       name: '',
@@ -50,6 +52,7 @@ export class ProductCardComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.cartService.currentItemsLength.subscribe(length => this.numberOfItems = Number(length));
     this.pr.quantity = 1;
     // @ts-ignore
     if (this.pr.imageList.length > 0) {
@@ -74,7 +77,8 @@ export class ProductCardComponent implements OnInit {
       // @ts-ignore
       subTotal: this.pr.price * this.pr.quantity
     });
-
+      this.cartService.changeItemsLength(this.numberOfItems);
+      this.numberOfItems = this.cartService.itemsCounter();
    // this.modalService.open(CartComponent);
   }
   addQuantity(): void{

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
 import {SloganService} from "../../services/slogan.service";
 import {Slogan} from "../../interfaces/slogan";
 import {Subscription} from "rxjs";
@@ -19,7 +18,7 @@ export class SloganMaintenanceComponent implements OnInit {
   // @ts-ignore
   private refreshSubscription: Subscription;
 
-  constructor(private sloganService: SloganService, private router: Router) {
+  constructor(private sloganService: SloganService) {
     this.slogan = '';
     this.added = false;
     // @ts-ignore
