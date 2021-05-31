@@ -119,6 +119,7 @@ export class HeaderComponent implements AfterViewInit , OnInit, OnDestroy{
           if (sessionStorage.length > 0) {
             this.firstName = sessionStorage.getItem('firstName');
             this.userRole = sessionStorage.getItem('role');
+            this.isMenuCollapsed = true;
           }
           this.router.navigate(['main']);
         } else {
@@ -132,6 +133,11 @@ export class HeaderComponent implements AfterViewInit , OnInit, OnDestroy{
       },
       error => {
         this.showLoginError = true;
+        this.login.username = '';
+        this.login.password = '';
+        setTimeout(() => {
+          this.showLoginError = false;
+        },  3000);
       });
     this.userResponse.succesful = false;
   }

@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {EmailNews} from "../../interfaces/email-news";
 import {EmailServiceService} from "../../services/email-service.service";
 
+
 @Component({
   selector: 'app-email-news-maintenance',
   templateUrl: './email-news-maintenance.component.html',
@@ -13,6 +14,7 @@ export class EmailNewsMaintenanceComponent implements OnInit {
   news: string;
   emailPartners: EmailNews[];
   pr: EmailNews;
+  added: boolean;
 
   constructor(private emailService: EmailServiceService) {
     this.news = '';
@@ -24,7 +26,9 @@ export class EmailNewsMaintenanceComponent implements OnInit {
        name: '',
        active: false,
        id: 0
-     }
+     };
+     this.added = false;
+
   }
 
   ngOnInit(): void {
@@ -42,7 +46,10 @@ export class EmailNewsMaintenanceComponent implements OnInit {
     });
   }
   submit(): void {
-
+    this.emailService.newEmail(this.emailNewsForm.value.news).subscribe( response => {
+      this.added = response;
+      console.log(this.added);
+    });
   }
 
 }

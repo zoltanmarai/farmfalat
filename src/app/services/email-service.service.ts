@@ -29,7 +29,7 @@ export class EmailServiceService {
     return this.http.get<any>(this.SERVER_URL+'/emailNews/allActives',{withCredentials: true})
       .pipe(map(resp => resp));
   }
-  newEmail(s: string):Observable<boolean> {
+  newEmail(s: string):Observable<any> {
     return this.http.post<boolean>(this.SERVER_URL+'/emailNews/sendANew',s,{ withCredentials: true});
   }
  // refreshEmailPartners(partners: EmailNews[]): void{

@@ -36,7 +36,7 @@
                        autocomplete="current-password" [(ngModel)]="login.password">
               </div>
 
-              <button type="submit" class="btn btn-outline-dark" (click)="submit(); isMenuCollapsed = userResponse.succesful">Bejelentkezés</button>
+              <button type="submit" class="btn btn-outline-dark" (click)="submit(); isMenuCollapsed = false">Bejelentkezés</button>
             </div>
             <div class="dropdown-divider"></div>
             <button  class="btn btn-outline-dark" ngbDropdownItem [routerLink]="['/registration']">
@@ -93,7 +93,7 @@
         <div class="invalid-feedback">Legalább 3 betűt írj be!</div>
       </div>
       <div *ngIf="userRole != 'admin'">
-        <button class=" btn btn-sm btn-outline-success" type="submit" (click)="productSearch(); isMenuCollapsed = true">Keresés</button>
+        <button class=" btn btn-sm btn-outline-success" type="submit" (click)="productSearch(); isMenuCollapsed = prNameValid">Keresés</button>
       </div>
 
     <div *ngIf="userRole == 'admin'" class="container-fluid">
