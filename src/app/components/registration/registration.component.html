@@ -79,6 +79,11 @@
               </div>
             </div>
           </div>
+          <div class="form-group form-check">
+            <input type="checkbox" formControlName="wantEmailNews" id="wantEmailNews" class="form-check-input"
+                   [ngClass]="{ 'is-invalid': registrationForm.controls.acceptTerms.invalid && registrationForm.controls.acceptTerms.touched }" />
+            <label for="acceptTerms" class="form-check-label">Felirattkozom hírlevélre</label>
+          </div>
         </div>
         <div class="col-lg-6">
           <div class="form-group">
@@ -122,9 +127,9 @@
         </div>
         <div class="form-group">
           <div class="mb-6 row">
-            <label for="inputPhoneNumber" class="col-sm-4 col-form-label">Telefonszám</label>
+            <label for="PhoneNumber" class="col-sm-4 col-form-label">Telefonszám</label>
             <div class="col-sm-8">
-              <input type="tel" class="form-control form-control-sm" id="inputPhoneNumber"
+              <input type="tel" class="form-control form-control-sm" id="PhoneNumber"
                      formControlName="phoneNumber"
                      [ngClass]="{'is-invalid': registrationForm.controls.phoneNumber.invalid && registrationForm.controls.phoneNumber.touched}">
               <div class="invalid-feedback" *ngIf="registrationForm.controls.phoneNumber.errors?.required">
@@ -147,20 +152,11 @@
               </div>
             </div>
           </div>
-          <div class="form-group">
-            <div class="mb-6 row">
-              <label class="col-sm-6 col-form-label">Feliratkozol a hírlevelünkre?:</label>
-              <div class="col-sm-6">
-                <div class="btn btn-toggle">
-                  <label class="btn-primary" ngbButtonLabel>
-                    <input type="checkbox" formControlName="wantEmailNems" ngbButton
-                           [value]="true"> Igen, szeretnék
-                  </label>
-
-                </div>
-
-              </div>
-            </div>
+          <div class="form-group form-check">
+            <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input"
+                   [ngClass]="{ 'is-invalid': registrationForm.controls.acceptTerms.invalid && registrationForm.controls.acceptTerms.touched }" />
+            <label for="acceptTerms" class="form-check-label">Elfogadom az ÁSZF-t és a Adatkezelési Tájékoztatót</label>
+            <div *ngIf="registrationForm.controls.acceptTerms.errors?.required" class="invalid-feedback">Ha regisztrálni akarsz ezt el kell fogadnod!</div>
           </div>
         <div class="row" id="row1">
           <p>Sikeres regisztráció esetén, emailt küldünk! </p>

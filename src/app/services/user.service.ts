@@ -7,6 +7,8 @@ import {Router} from "@angular/router";
 import {Login} from "../interfaces/login";
 import {UserResponse} from "../interfaces/user-response";
 import {map} from "rxjs/operators";
+import {Email} from "../interfaces/email";
+import {ChangePassword} from "../interfaces/change-password";
 
 @Injectable({
   providedIn: 'root'
@@ -45,5 +47,11 @@ export class UserService {
   }
   removeUser(id:number): Observable<any> {
     return this.http.post<any>(this.SERVER_URL+'/user/remove/'+id, '', {withCredentials: true});
+  }
+  forgotPassword(e:Email): Observable<any> {
+    return this.http.post<any>(this.SERVER_URL+'/user/forgot_password',e, {withCredentials: true});
+  }
+   newPassword(c:ChangePassword): Observable<any> {
+    return this.http.post<any>(this.SERVER_URL+'/user/reset_password',c, {withCredentials: true});
   }
 }

@@ -5,6 +5,7 @@ import {Faq} from "../../interfaces/faq";
 import {Aboutus} from "../../interfaces/aboutus";
 import {PartnerService} from "../../services/partner.service";
 import {Partner} from "../../interfaces/partner";
+import {Title} from "@angular/platform-browser";
 
 
 @Component({
@@ -21,6 +22,7 @@ export class AboutComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private router: Router,
               private faqService: FaqService,
+              private titleService: Title,
               private partnerService: PartnerService) {
     this.partners = [];
     this.faq = {
@@ -34,6 +36,7 @@ export class AboutComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.titleService.setTitle('Rólunk');
     this.faqService.getFaqs().subscribe( resp => {
       this.faqArr = resp;
     });

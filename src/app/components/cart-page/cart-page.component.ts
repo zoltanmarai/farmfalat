@@ -232,6 +232,7 @@ export class CartPageComponent implements OnInit {
           this.showRespSuccess = true;
           setTimeout( () =>{
             this.cartService.clearCart();
+            this.cartService.changeItemsLength(this.numberOfItems);
             this.router.navigate(['main']);
           },3000);
       }else{

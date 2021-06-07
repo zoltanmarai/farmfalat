@@ -7,6 +7,7 @@ import {UserService} from "../../services/user.service";
 import {TokenService} from "../../services/token.service";
 import {Login} from "../../interfaces/login";
 import {UserResponse} from "../../interfaces/user-response";
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-registration',
@@ -25,11 +26,14 @@ export class RegistrationComponent implements OnInit {
   userResponse: UserResponse;
   isMoreAddress: boolean;
   showRegSuccess: boolean;
+  acceptTerms: boolean
  // confirm: ConfirmMessageResponse;
 
 
   constructor( private userService: UserService,
-              private router: Router, private tokenService: TokenService) {
+              private router: Router, private tokenService: TokenService,
+               private titleService: Title) {
+    this.acceptTerms = false;
     this.showRegSuccess = false;
     this.isMoreAddress = false;
     this.successful = false;
@@ -44,16 +48,17 @@ export class RegistrationComponent implements OnInit {
       password2: '',
       simpleAddress_home: '',
       city_home: '',
-      postCode_home: 0,
+      postCode_home: 1000,
       phoneNumber: '',
       active: false,
-      wantEmailNews: false
+      wantEmailNews: false,
+
     };
     // @ts-ignore
     this.registrationForm = {firstName: '', lastName: '', username: '',
       password: '',password2:'', simpleAddress_home: '', city_home: '', postCode_home: 1000, phoneNumber: '',
       address_delivery: null, city_delivery: null, postCode_delivery: 0,
-      address_billing: null, city_billing: null, postCode_billing: 0, wantEmailNews: false
+      address_billing: null, city_billing: null, postCode_billing: 0, wantEmailNews: false, acceptTerms: false
     };
     this.showRegError = false;
     // @ts-ignore
@@ -91,7 +96,9 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit(): void {
     this.createRegistrationForm();
+    this.titleService.setTitle('Regisztráció');
   }
+
   createRegistrationForm(): void {
     this.registrationForm = new FormGroup({
       firstName: new FormControl(this.user.firstName, Validators.required),
@@ -101,8 +108,8 @@ export class RegistrationComponent implements OnInit {
       simpleAddress_home: new FormControl(this.user.simpleAddress_home, Validators.required),
       city_home: new FormControl(this.user.city_home, Validators.required),
       password2: new FormControl(this.user.password2, Validators.required),
-      postCode_home: new FormControl(this.user.postCode_home, Validators.minLength(4)),
-      phoneNumber: new FormControl(this.user.phoneNumber, Validators.minLength(6)),
+      postCode_home: new FormControl(this.user.postCode_home, [Validators.minLength(4),Validators.required]),
+      phoneNumber: new FormControl(this.user.phoneNumber, [Validators.minLength(6),Validators.required]),
       simpleAddress_delivery: new FormControl(this.user.simpleAddress_delivery),
       simpleAddress_billing: new FormControl(this.user.simpleAddress_billing),
       city_delivery: new FormControl(this.user.city_delivery),
@@ -110,7 +117,8 @@ export class RegistrationComponent implements OnInit {
       postCode_delivery: new FormControl(this.user.postCode_delivery),
       postCode_billing: new FormControl(this.user.postCode_billing),
       isMoreAddress: new FormControl(this.isMoreAddress, Validators.required),
-      wantEmailNews: new FormControl(this.user.wantEmailNews, Validators.required)
+      wantEmailNews: new FormControl(this.user.wantEmailNews),
+      acceptTerms: new FormControl(this.acceptTerms,Validators.requiredTrue)
     });
   }
   submit(): void {
