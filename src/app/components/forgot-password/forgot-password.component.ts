@@ -100,7 +100,11 @@ export class ForgotPasswordComponent implements OnInit {
     });
   }
   changePassword(): void {
-    this.userService.newPassword(this.npswForm.value).subscribe(resp =>{
+    this.cP.password = this.npswForm.value.password;
+    if (this.pswToken != null) {
+      this.cP.token = this.pswToken;
+    }
+    this.userService.newPassword(this.cP).subscribe(resp =>{
       console.log(resp);
       this.successful = resp;
       console.log(this.successful);
