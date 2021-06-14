@@ -48,10 +48,10 @@ export class UserService {
   removeUser(id:number): Observable<any> {
     return this.http.post<any>(this.SERVER_URL+'/user/remove/'+id, '', {withCredentials: true});
   }
-  forgotPassword(e:Email): Observable<any> {
-    return this.http.post<any>(this.SERVER_URL+'/user/forgot_password',e, {withCredentials: true});
+  forgotPassword(e:Email): Observable<boolean> {
+    return this.http.post<boolean>(this.SERVER_URL+'/user/forgot-password',e, {withCredentials: true});
   }
    newPassword(c:ChangePassword): Observable<any> {
-    return this.http.post<any>(this.SERVER_URL+'/user/reset_password',c, {withCredentials: true});
+    return this.http.post<any>(this.SERVER_URL+'/user/reset-password',c, {withCredentials: true});
   }
 }

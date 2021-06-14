@@ -44,7 +44,7 @@ const routes: Routes = [
   {path: 'packages', component: PackagesComponent},
   {path: 'about', component: AboutComponent},
   {path: 'registration',component: RegistrationComponent},
-  {path: 'forgot-password', component: ForgotPasswordComponent},
+  {path: 'forgot-password/:pswToken', component: ForgotPasswordComponent},
   {path: 'cart-page', component: CartPageComponent},
   {path: 'product-maintenance', component: ProductMaintenanceComponent},
   {path: 'product-tablerow', component: ProductTablerowComponent},
